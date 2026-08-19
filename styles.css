@@ -12,6 +12,10 @@ body {
     line-height: 1.6;
 }
 
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar {
     position: sticky;
     top: 0;
@@ -21,7 +25,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .logo {
@@ -52,10 +56,15 @@ body {
     color: #12372a;
 }
 
+/* =========================
+   HERO / CAROUSEL
+========================= */
+
 .hero {
     position: relative;
     overflow: hidden;
     height: 520px;
+    background: #12372a;
 }
 
 .carousel {
@@ -71,28 +80,112 @@ body {
     animation: carousel 15s infinite;
 }
 
-.slide:nth-child(1) { animation-delay: 0s; }
-.slide:nth-child(2) { animation-delay: 3s; }
-.slide:nth-child(3) { animation-delay: 6s; }
-.slide:nth-child(4) { animation-delay: 9s; }
-.slide:nth-child(5) { animation-delay: 12s; }
+.slide:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.slide:nth-child(3) {
+    animation-delay: 6s;
+}
+
+.slide:nth-child(4) {
+    animation-delay: 9s;
+}
+
+.slide:nth-child(5) {
+    animation-delay: 12s;
+}
 
 .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-.slide::after {
-    content: "";
+/* Dark overlay over each image */
+.slide-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.15),
-        rgba(0,0,0,0.65)
-    );
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.08) 0%,
+            rgba(0, 0, 0, 0.10) 35%,
+            rgba(0, 0, 0, 0.45) 70%,
+            rgba(0, 0, 0, 0.78) 100%
+        );
+    pointer-events: none;
 }
+
+/* Main hero text */
+.slide-caption {
+    position: absolute;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 650px;
+    z-index: 2;
+}
+
+.slide-caption h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    margin-bottom: 12px;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.35);
+}
+
+.slide-caption p {
+    font-size: clamp(16px, 2vw, 21px);
+    max-width: 620px;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   PLACE TITLE
+========================= */
+
+.place-title {
+    position: absolute;
+    left: 7%;
+    bottom: 28px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+}
+
+.place-title span {
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-size: clamp(18px, 2vw, 27px);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 10px 18px 11px 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+/* Elegant gold accent line */
+.place-title span::before {
+    content: "";
+    display: inline-block;
+    width: 42px;
+    height: 3px;
+    background: #d9a441;
+    margin-right: 12px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+/* =========================
+   CAROUSEL ANIMATION
+========================= */
 
 @keyframes carousel {
     0% {
@@ -116,6 +209,10 @@ body {
     }
 }
 
+/* =========================
+   CONTENT SECTION
+========================= */
+
 .section {
     width: min(1100px, 90%);
     margin: 50px auto;
@@ -133,6 +230,10 @@ body {
     margin-bottom: 30px;
 }
 
+/* =========================
+   CATEGORY CARDS
+========================= */
+
 .category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -143,7 +244,7 @@ body {
     background: white;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     border-top: 4px solid #d9a441;
 }
 
@@ -159,6 +260,10 @@ body {
     font-weight: bold;
     text-decoration: none;
 }
+
+/* =========================
+   OTHER PAGE COMPONENTS
+========================= */
 
 .page-header {
     background: linear-gradient(135deg, #12372a, #276749);
@@ -176,7 +281,7 @@ body {
     background: white;
     padding: 35px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
     min-height: 350px;
 }
 
@@ -188,6 +293,10 @@ body {
     border-radius: 10px;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 footer {
     margin-top: 60px;
     background: #12372a;
@@ -196,7 +305,12 @@ footer {
     padding: 25px;
 }
 
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
 @media (max-width: 800px) {
+
     .navbar {
         flex-direction: column;
         gap: 12px;
@@ -212,6 +326,69 @@ footer {
 
     .slide-caption {
         left: 6%;
-        bottom: 12%;
+        top: 46%;
+        max-width: 88%;
+    }
+
+    .slide-caption h1 {
+        font-size: 42px;
+    }
+
+    .slide-caption p {
+        font-size: 16px;
+    }
+
+    .place-title {
+        left: 6%;
+        bottom: 22px;
+    }
+
+    .place-title span {
+        font-size: 18px;
+    }
+
+    .place-title span::before {
+        width: 28px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav-links {
+        gap: 4px;
+    }
+
+    .nav-links a {
+        padding: 7px 9px;
+        font-size: 14px;
+    }
+
+    .hero {
+        height: 390px;
+    }
+
+    .slide-caption {
+        top: 43%;
+    }
+
+    .slide-caption h1 {
+        font-size: 34px;
+    }
+
+    .slide-caption p {
+        font-size: 15px;
+    }
+
+    .place-title {
+        bottom: 18px;
+    }
+
+    .place-title span {
+        font-size: 16px;
     }
 }
