@@ -63,7 +63,9 @@ body {
 .hero {
     position: relative;
     overflow: hidden;
-    height: 520px;
+    height: calc(100vh - 75px);
+    height: calc(100dvh - 75px);
+    min-height: 380px;
     background: #12372a;
 }
 
@@ -215,7 +217,8 @@ body {
 
 .section {
     width: min(1100px, 90%);
-    margin: 50px auto;
+    margin: 0 auto 50px auto;
+    padding-top: 18px;
 }
 
 .section h2 {
@@ -320,9 +323,7 @@ footer {
         justify-content: center;
     }
 
-    .hero {
-        height: 420px;
-    }
+
 
     .slide-caption {
         left: 6%;
@@ -368,9 +369,7 @@ footer {
         font-size: 14px;
     }
 
-    .hero {
-        height: 390px;
-    }
+
 
     .slide-caption {
         top: 43%;
