@@ -1,46 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historic Bengaluru | Bengaluru Tourism</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<nav class="navbar">
-    <a href="index.html" class="logo">Bengaluru Tourism</a>
-    <ul class="nav-links">
-        <li><a href="historic.html">Historic</a></li>
-<li><a href="administrative.html">Administrative</a></li>
-<li><a href="wildlife.html">Wildlife</a></li>
-<li><a href="religious.html">Religious</a></li>
-<li><a href="commercial.html">Commercial</a></li>
-<li><a href="art-culture.html">Art & Culture</a></li>
-    </ul>
-</nav>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Bengaluru Tourism</a>
+        <ul class="nav-links">
+            <li><a href="historic.html" class="active">Historic</a></li>
+            <li><a href="administrative.html">Administrative</a></li>
+            <li><a href="wildlife.html">Wildlife</a></li>
+            <li><a href="religious.html">Religious</a></li>
+            <li><a href="commercial.html">Commercial</a></li>
+            <li><a href="art-culture.html">Art & Culture</a></li>
+        </ul>
+    </nav>
 
-<header class="page-header">
-    <h1>Historic Bengaluru</h1>
-    <p>Explore Bengaluru's historic places, monuments, forts, palaces and heritage sites.</p>
-</header>
+    <header class="page-header">
+        <h1>Historic Bengaluru</h1>
+        <p>Explore Bengaluru's iconic palaces, forts, monuments and centuries of royal heritage.</p>
+    </header>
 
-<main class="section">
-    <div class="content-box">
-        <div class="placeholder">
-            <h2>Content Coming Soon</h2>
-            <p>
-                This section is ready for the tourism information,
-                images, locations, timings, history and other details
-                that will be provided later.
-            </p>
+    <main class="section">
+        <h2>Historic Places & Monuments</h2>
+        <p class="intro">Click any landmark card below to open an interactive view with multiple photos, history, timings, and visiting details.</p>
+
+        <div class="historic-grid">
+
+            <!-- Card 1: Bangalore Palace -->
+            <div class="historic-card" data-info='{
+                "title": "Bangalore Palace",
+                "category": "Royal Tudor Architecture",
+                "location": "Vasanth Nagar, Bengaluru",
+                "timings": "10:00 AM – 5:30 PM (Daily)",
+                "built": "1887 (Wodeyar Dynasty)",
+                "description": "Built in 1887 by King Chamaraja Wodeyar, Bangalore Palace is an architectural marvel inspired by England’s Windsor Castle. It features Tudor-style turrets, fortified towers, vintage chandeliers, ornate wooden carvings, and manicured gardens.",
+                "images": [
+                    "images/bangalore_palace_ext.png",
+                    "images/bangalore_palace_int.png",
+                    "images/bangalore_palace_courtyard.png"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/bangalore_palace_ext.png" alt="Bangalore Palace">
+                    <span class="card-badge">Royal Heritage</span>
+                </div>
+                <div class="historic-card-body">
+                    <h3>Bangalore Palace</h3>
+                    <p>Tudor-style royal residence featuring grand towers, wooden carvings, ballrooms, and palace gardens.</p>
+                    <span class="card-action-link">View Details & Gallery →</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Tipu Sultan Summer Palace -->
+            <div class="historic-card" data-info='{
+                "title": "Tipu Sultan’s Summer Palace",
+                "category": "Indo-Islamic Teakwood Heritage",
+                "location": "Chamrajpet, Bengaluru",
+                "timings": "8:30 AM – 5:30 PM (Daily)",
+                "built": "1791 (Kingdom of Mysore)",
+                "description": "Completed in 1791 during the reign of Tipu Sultan, this summer residence is built almost entirely of teakwood with grand fluted pillars, cusped arches, and exquisite floral ceiling paintings. It stands as a glorious example of Indo-Islamic architecture.",
+                "images": [
+                    "images/tipu_palace_ext.png",
+                    "images/tipu_palace_int.png",
+                    "https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/tipu_palace_ext.png" alt="Tipu Sultan Summer Palace">
+                    <span class="card-badge">Indo-Islamic</span>
+                </div>
+                <div class="historic-card-body">
+                    <h3>Tipu Sultan’s Summer Palace</h3>
+                    <p>Famous teakwood palace with fluted pillars, cusped arches, and detailed floral ceiling frescoes.</p>
+                    <span class="card-action-link">View Details & Gallery →</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Bengaluru Fort -->
+            <div class="historic-card" data-info='{
+                "title": "Bengaluru Fort & Delhi Gate",
+                "category": "16th Century Fortification",
+                "location": "KR Market, Bengaluru",
+                "timings": "9:00 AM – 5:00 PM (Daily)",
+                "built": "1537 (Kempe Gowda I) / 1761 (Hyder Ali)",
+                "description": "Originally constructed as a mud fort in 1537 by Kempe Gowda I, the founder of Bengaluru, it was later rebuilt in stone by Hyder Ali and Tipu Sultan. The preserved Delhi Gate features thick granite walls, ancient bastions, and carved stone pillars.",
+                "images": [
+                    "https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d",
+                    "images/Someshwara_temple.jpg",
+                    "images/Entrance_of_Shivaganga.jpeg"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d" alt="Bengaluru Fort">
+                    <span class="card-badge">Ancient Fort</span>
+                </div>
+                <div class="historic-card-body">
+                    <h3>Bengaluru Fort & Gate</h3>
+                    <p>Historic stone ramparts and gate dating back to the city's founder Kempe Gowda and Hyder Ali.</p>
+                    <span class="card-action-link">View Details & Gallery →</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Lalbagh Heritage Glass House -->
+            <div class="historic-card" data-info='{
+                "title": "Lalbagh Heritage Glass House",
+                "category": "Botanical Monument",
+                "location": "Mavalli, Bengaluru",
+                "timings": "6:00 AM – 7:00 PM (Daily)",
+                "built": "1760 (Hyder Ali) / 1889 (Glass House)",
+                "description": "Commissioned in 1760 by Hyder Ali, Lalbagh is a historic botanical sanctuary. Its crown jewel is the Victorian Glass House built in 1889, modeled after London’s Crystal Palace, hosting world-famous flower exhibitions.",
+                "images": [
+                    "images/Lalbagh_lake_view.jpg",
+                    "images/Someshwara_temple.jpg",
+                    "images/Entrance_of_Iskcon_temple.jpg"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/Lalbagh_lake_view.jpg" alt="Lalbagh Heritage Park">
+                    <span class="card-badge">Botanical Landmark</span>
+                </div>
+                <div class="historic-card-body">
+                    <h3>Lalbagh Heritage Park</h3>
+                    <p>Royal botanical garden with a Victorian Glass House modeled after London's Crystal Palace.</p>
+                    <span class="card-action-link">View Details & Gallery →</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MODAL OVERLAY -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+
+            <div class="modal-gallery-container">
+                <div class="modal-main-image-box">
+                    <img id="modal-main-img" src="" alt="Landmark view">
+                </div>
+                <div class="modal-thumbs-row" id="modal-thumbs"></div>
+            </div>
+
+            <div class="modal-info-box">
+                <h2 id="modal-title"></h2>
+                <span class="modal-tag-badge" id="modal-tag"></span>
+                <p class="modal-desc-text" id="modal-desc"></p>
+
+                <div class="modal-details-grid">
+                    <div class="modal-detail-item">
+                        <strong>Timings:</strong> <span id="modal-timings"></span>
+                    </div>
+                    <div class="modal-detail-item">
+                        <strong>Location:</strong> <span id="modal-location"></span>
+                    </div>
+                    <div class="modal-detail-item">
+                        <strong>Built:</strong> <span id="modal-built"></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</main>
 
-<footer>
-    <p>© 2026 Bengaluru Tourism | Karnataka, India</p>
-</footer>
+    <footer>
+        <p>© 2026 Bengaluru Tourism | Karnataka, India</p>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.historic-card');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalCloseBtn = document.getElementById('modal-close');
+        const modalTitle = document.getElementById('modal-title');
+        const modalTag = document.getElementById('modal-tag');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalTimings = document.getElementById('modal-timings');
+        const modalLocation = document.getElementById('modal-location');
+        const modalBuilt = document.getElementById('modal-built');
+        const mainImage = document.getElementById('modal-main-img');
+        const thumbsContainer = document.getElementById('modal-thumbs');
+
+        let activeTimeout = null;
+
+        function populateAndOpenModal(card) {
+            const data = JSON.parse(card.dataset.info);
+            modalTitle.textContent = data.title;
+            modalTag.textContent = data.category;
+            modalDesc.textContent = data.description;
+            modalTimings.textContent = data.timings;
+            modalLocation.textContent = data.location;
+            modalBuilt.textContent = data.built;
+
+            // Set main image and thumbnails
+            mainImage.src = data.images[0];
+            thumbsContainer.innerHTML = '';
+            
+            data.images.forEach((imgUrl, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = `modal-thumb ${index === 0 ? 'active' : ''}`;
+                thumb.innerHTML = `<img src="${imgUrl}" alt="${data.title}">`;
+                thumb.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    mainImage.src = imgUrl;
+                    document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+                thumbsContainer.appendChild(thumb);
+            });
+
+            modalOverlay.classList.add('active');
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+        }
+
+        cards.forEach(card => {
+            // Click opens modal
+            card.addEventListener('click', () => {
+                populateAndOpenModal(card);
+            });
+        });
+
+        // Click outside modal card (on backdrop) closes modal
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
 
 </body>
+
 </html>
