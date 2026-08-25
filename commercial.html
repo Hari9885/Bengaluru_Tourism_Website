@@ -1,46 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commercial Bengaluru | Bengaluru Tourism</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<nav class="navbar">
-    <a href="index.html" class="logo">Bengaluru Tourism</a>
-    <ul class="nav-links">
-        <li><a href="historic.html">Historic</a></li>
-<li><a href="administrative.html">Administrative</a></li>
-<li><a href="wildlife.html">Wildlife</a></li>
-<li><a href="religious.html">Religious</a></li>
-<li><a href="commercial.html">Commercial</a></li>
-<li><a href="art-culture.html">Art & Culture</a></li>
-    </ul>
-</nav>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Bengaluru Tourism</a>
+        <ul class="nav-links">
+            <li><a href="historic.html">Historic</a></li>
+            <li><a href="administrative.html">Administrative</a></li>
+            <li><a href="wildlife.html">Wildlife</a></li>
+            <li><a href="religious.html">Religious</a></li>
+            <li><a href="commercial.html" class="active">Commercial</a></li>
+            <li><a href="art-culture.html">Art &amp; Culture</a></li>
+        </ul>
+    </nav>
 
-<header class="page-header">
-    <h1>Commercial Bengaluru</h1>
-    <p>Explore markets, shopping districts, business hubs and the commercial side of the city.</p>
-</header>
+    <header class="page-header">
+        <h1>Commercial Bengaluru</h1>
+        <p>Explore markets, shopping districts, business hubs and the commercial side of the city.</p>
+    </header>
 
-<main class="section">
-    <div class="content-box">
-        <div class="placeholder">
-            <h2>Content Coming Soon</h2>
-            <p>
-                This section is ready for the tourism information,
-                images, locations, timings, history and other details
-                that will be provided later.
-            </p>
+    <main class="section">
+        <h2>Markets &amp; Commercial Hubs</h2>
+        <p class="intro">Click any landmark card below to open an interactive view with multiple photos, history, timings, and visiting details.</p>
+
+        <div class="historic-grid">
+
+            <!-- Card 1: KR Market -->
+            <div class="historic-card" data-info='{
+                "title": "KR Market (Krishna Rajendra Market)",
+                "description": "Krishna Rajendra Market, popularly known as City Market, is one of the oldest and busiest wholesale markets in India. Spread across several blocks, it is the primary hub for fresh flowers, fruits, vegetables, spices, and textiles. The flower market section is world-famous — tonnes of jasmine, roses, marigolds, and tuberoses are traded daily, creating an unforgettable sensory experience.",
+                "images": [
+                    "images/Entrance_of_Shivaganga.jpeg",
+                    "images/Someshwara_temple.jpg",
+                    "images/Lalbagh_lake_view.jpg"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/Entrance_of_Shivaganga.jpeg" alt="KR Market">
+                </div>
+                <div class="historic-card-body">
+                    <h3>KR Market (City Market)</h3>
+                    <p>One of India's oldest wholesale markets, famous for its vibrant flower trade, fresh produce, and bustling energy.</p>
+                    <span class="card-action-link">View Details &amp; Gallery →</span>
+                </div>
+            </div>
+
+            <!-- Card 2: MG Road & Brigade Road -->
+            <div class="historic-card" data-info='{
+                "title": "MG Road & Brigade Road",
+                "description": "Mahatma Gandhi Road (MG Road) and the adjoining Brigade Road form the most iconic commercial stretch in Bengaluru. Once the heart of the British cantonment, these tree-lined boulevards now feature premium retail stores, cafés, bookshops, and entertainment venues. The MG Road metro station and the lively street atmosphere make this a must-visit for shoppers and tourists alike.",
+                "images": [
+                    "images/Lalbagh_lake_view.jpg",
+                    "https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d",
+                    "images/Someshwara_temple.jpg"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/Lalbagh_lake_view.jpg" alt="MG Road & Brigade Road">
+                </div>
+                <div class="historic-card-body">
+                    <h3>MG Road &amp; Brigade Road</h3>
+                    <p>Bengaluru's most iconic commercial boulevard with premium retail, cafés, bookshops, and vibrant street life.</p>
+                    <span class="card-action-link">View Details &amp; Gallery →</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Commercial Street -->
+            <div class="historic-card" data-info='{
+                "title": "Commercial Street",
+                "description": "Commercial Street is Bengaluru's most popular retail destination for affordable fashion, accessories, electronics, and street food. Stretching for about a kilometre, this bustling pedestrian-friendly street is packed with hundreds of shops, boutiques, and eateries. It is the go-to destination for bargain hunters and festival shoppers looking for everything from silk sarees to trendy footwear.",
+                "images": [
+                    "images/Someshwara_temple.jpg",
+                    "images/Entrance_of_Iskcon_temple.jpg",
+                    "images/Entrance_of_Shivaganga.jpeg"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/Someshwara_temple.jpg" alt="Commercial Street">
+                </div>
+                <div class="historic-card-body">
+                    <h3>Commercial Street</h3>
+                    <p>A kilometre-long bustling shopping hub for affordable fashion, accessories, electronics, and delicious street food.</p>
+                    <span class="card-action-link">View Details &amp; Gallery →</span>
+                </div>
+            </div>
+
+            <!-- Card 4: UB City Mall -->
+            <div class="historic-card" data-info='{
+                "title": "UB City Mall",
+                "description": "UB City is Bengaluru's premier luxury mall and mixed-use development. Home to international luxury brands like Louis Vuitton, Burberry, and Rolex, it also features gourmet restaurants, art galleries, and the famous 1 MG Road Mall nearby. The modern glass-and-steel towers set against landscaped plazas represent the aspirational, cosmopolitan side of Bengaluru.",
+                "images": [
+                    "https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d",
+                    "images/Lalbagh_lake_view.jpg",
+                    "images/Entrance_of_Iskcon_temple.jpg"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d" alt="UB City Mall">
+                </div>
+                <div class="historic-card-body">
+                    <h3>UB City Mall</h3>
+                    <p>Bengaluru's premier luxury mall with international brands, gourmet dining, and art galleries in a modern glass tower.</p>
+                    <span class="card-action-link">View Details &amp; Gallery →</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MODAL OVERLAY -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+
+            <div class="modal-gallery-container">
+                <div class="modal-main-image-box">
+                    <img id="modal-main-img" src="" alt="Landmark view">
+                </div>
+                <div class="modal-thumbs-row" id="modal-thumbs"></div>
+            </div>
+
+            <div class="modal-info-box">
+                <h2 id="modal-title"></h2>
+                <p class="modal-desc-text" id="modal-desc"></p>
+
+                </div>
+            </div>
         </div>
     </div>
-</main>
 
-<footer>
-    <p>© 2026 Bengaluru Tourism | Karnataka, India</p>
-</footer>
+    <footer>
+        <p>&copy; 2026 Bengaluru Tourism | Karnataka, India</p>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.historic-card');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalCloseBtn = document.getElementById('modal-close');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const mainImage = document.getElementById('modal-main-img');
+        const thumbsContainer = document.getElementById('modal-thumbs');
+
+        function populateAndOpenModal(card) {
+            const data = JSON.parse(card.dataset.info);
+            modalTitle.textContent = data.title;
+            modalDesc.textContent = data.description;
+            mainImage.src = data.images[0];
+            thumbsContainer.innerHTML = '';
+
+            data.images.forEach((imgUrl, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = `modal-thumb ${index === 0 ? 'active' : ''}`;
+                thumb.innerHTML = `<img src="${imgUrl}" alt="${data.title}">`;
+                thumb.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    mainImage.src = imgUrl;
+                    document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+                thumbsContainer.appendChild(thumb);
+            });
+
+            modalOverlay.classList.add('active');
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                populateAndOpenModal(card);
+            });
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
 
 </body>
+
 </html>
