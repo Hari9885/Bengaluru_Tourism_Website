@@ -1,46 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Religious Bengaluru | Bengaluru Tourism</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<nav class="navbar">
-    <a href="index.html" class="logo">Bengaluru Tourism</a>
-    <ul class="nav-links">
-        <li><a href="historic.html">Historic</a></li>
-<li><a href="administrative.html">Administrative</a></li>
-<li><a href="wildlife.html">Wildlife</a></li>
-<li><a href="religious.html">Religious</a></li>
-<li><a href="commercial.html">Commercial</a></li>
-<li><a href="art-culture.html">Art & Culture</a></li>
-    </ul>
-</nav>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Bengaluru Tourism</a>
+        <ul class="nav-links">
+            <li><a href="historic.html">Historic</a></li>
+            <li><a href="administrative.html">Administrative</a></li>
+            <li><a href="wildlife.html">Wildlife</a></li>
+            <li><a href="religious.html" class="active">Religious</a></li>
+            <li><a href="commercial.html">Commercial</a></li>
+            <li><a href="art-culture.html">Art &amp; Culture</a></li>
+        </ul>
+    </nav>
 
-<header class="page-header">
-    <h1>Religious Bengaluru</h1>
-    <p>Discover temples, churches, mosques and other important religious and spiritual landmarks.</p>
-</header>
+    <header class="page-header">
+        <h1>Religious Bengaluru</h1>
+        <p>Discover temples, churches, mosques and other important religious and spiritual landmarks.</p>
+    </header>
 
-<main class="section">
-    <div class="content-box">
-        <div class="placeholder">
-            <h2>Content Coming Soon</h2>
-            <p>
-                This section is ready for the tourism information,
-                images, locations, timings, history and other details
-                that will be provided later.
-            </p>
+    <main class="section">
+        <h2>Religious &amp; Spiritual Landmarks</h2>
+        <p class="intro">Click any landmark card below to open an interactive view with multiple photos, history, timings, and visiting details.</p>
+
+        <div class="historic-grid">
+
+            <!-- Card 1: ISKCON Temple -->
+            <div class="historic-card" data-info='{
+                "title": "ISKCON Temple Bengaluru",
+                "description": "The ISKCON Temple in Bengaluru is one of the largest ISKCON temples in the world. Perched atop Hare Krishna Hill, this stunning temple complex blends modern architecture with traditional Dravidian and Rajasthani styles. It features an ornate gold-plated main altar, a Vedic museum, an open-air theatre, and hosts grand celebrations during Janmashtami.",
+                "images": [
+                    "images/Entrance_of_Iskcon_temple.jpg",
+                    "images/Someshwara_temple.jpg",
+                    "images/Lalbagh_lake_view.jpg"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/Entrance_of_Iskcon_temple.jpg" alt="ISKCON Temple Bengaluru">
+                </div>
+                <div class="historic-card-body">
+                    <h3>ISKCON Temple</h3>
+                    <p>One of the world's largest ISKCON temples atop Hare Krishna Hill, blending modern and Dravidian architecture beautifully.</p>
+                    <span class="card-action-link">View Details &amp; Gallery →</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Someshwara Temple -->
+            <div class="historic-card" data-info='{
+                "title": "Someshwara Temple",
+                "description": "Someshwara Temple is one of the oldest temples in Bengaluru, dating back to the Chola period. Dedicated to Lord Shiva, it features intricate Dravidian-style carvings, massive granite pillars, and a serene temple tank. The temple complex also includes shrines to Parvati, Ganesha, and Nandi, and is a tranquil retreat amidst the bustling Ulsoor neighbourhood.",
+                "images": [
+                    "images/Someshwara_temple.jpg",
+                    "images/Entrance_of_Iskcon_temple.jpg",
+                    "images/Lalbagh_lake_view.jpg"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/Someshwara_temple.jpg" alt="Someshwara Temple">
+                </div>
+                <div class="historic-card-body">
+                    <h3>Someshwara Temple</h3>
+                    <p>A Chola-era temple dedicated to Lord Shiva with intricate Dravidian carvings, granite pillars, and a serene temple tank.</p>
+                    <span class="card-action-link">View Details &amp; Gallery →</span>
+                </div>
+            </div>
+
+            <!-- Card 3: St. Mary's Basilica -->
+            <div class="historic-card" data-info='{
+                "title": "St. Mary's Basilica",
+                "description": "St. Mary's Basilica is one of the oldest churches in Bengaluru. Elevated to the status of a minor basilica by Pope John Paul II in 1973, it is known for its Gothic-style architecture, stained-glass windows, and the annual St. Mary's Feast in September — one of the largest religious gatherings in Bengaluru drawing over a million devotees.",
+                "images": [
+                    "images/Entrance_of_Iskcon_temple.jpg",
+                    "images/Someshwara_temple.jpg",
+                    "https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/Entrance_of_Iskcon_temple.jpg" alt="St. Mary's Basilica">
+                </div>
+                <div class="historic-card-body">
+                    <h3>St. Mary's Basilica</h3>
+                    <p>A Gothic-style basilica from 1882, famous for its stained-glass windows and the grand annual September feast.</p>
+                    <span class="card-action-link">View Details &amp; Gallery →</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Jumma Masjid -->
+            <div class="historic-card" data-info='{
+                "title": "Jumma Masjid",
+                "description": "The Jumma Masjid near KR Market is one of the largest and busiest mosques in Bengaluru. Its towering minarets, grand dome, and spacious prayer hall can accommodate thousands of worshippers. Located in the heart of the old city, it serves as a spiritual and community centre for the local Muslim population and is an important landmark in Bengaluru's multicultural tapestry.",
+                "images": [
+                    "images/Someshwara_temple.jpg",
+                    "https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d",
+                    "images/Entrance_of_Shivaganga.jpeg"
+                ]
+            }'>
+                <div class="card-img-wrapper">
+                    <img src="images/Someshwara_temple.jpg" alt="Jumma Masjid">
+                </div>
+                <div class="historic-card-body">
+                    <h3>Jumma Masjid</h3>
+                    <p>One of the largest mosques in Bengaluru with towering minarets and a grand dome, near the historic KR Market area.</p>
+                    <span class="card-action-link">View Details &amp; Gallery →</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MODAL OVERLAY -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+
+            <div class="modal-gallery-container">
+                <div class="modal-main-image-box">
+                    <img id="modal-main-img" src="" alt="Landmark view">
+                </div>
+                <div class="modal-thumbs-row" id="modal-thumbs"></div>
+            </div>
+
+            <div class="modal-info-box">
+                <h2 id="modal-title"></h2>
+                <p class="modal-desc-text" id="modal-desc"></p>
+
+                </div>
+            </div>
         </div>
     </div>
-</main>
 
-<footer>
-    <p>© 2026 Bengaluru Tourism | Karnataka, India</p>
-</footer>
+    <footer>
+        <p>&copy; 2026 Bengaluru Tourism | Karnataka, India</p>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.historic-card');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalCloseBtn = document.getElementById('modal-close');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const mainImage = document.getElementById('modal-main-img');
+        const thumbsContainer = document.getElementById('modal-thumbs');
+
+        function populateAndOpenModal(card) {
+            const data = JSON.parse(card.dataset.info);
+            modalTitle.textContent = data.title;
+            modalDesc.textContent = data.description;
+            mainImage.src = data.images[0];
+            thumbsContainer.innerHTML = '';
+
+            data.images.forEach((imgUrl, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = `modal-thumb ${index === 0 ? 'active' : ''}`;
+                thumb.innerHTML = `<img src="${imgUrl}" alt="${data.title}">`;
+                thumb.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    mainImage.src = imgUrl;
+                    document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+                thumbsContainer.appendChild(thumb);
+            });
+
+            modalOverlay.classList.add('active');
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                populateAndOpenModal(card);
+            });
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
 
 </body>
+
 </html>
