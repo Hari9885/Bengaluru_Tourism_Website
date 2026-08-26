@@ -42,11 +42,22 @@
                     "images/Bangalore_Palace.jpeg",
                     "images/Bangalore_Palace_3.jpeg",
                     "images/Bangalore_Palace_2.jpeg"
+                ],
+                "imageCaptions": [
+                    "Front view of the majestic Bangalore Palace.",
+                    "Stunning interior details of the palace.",
+                    "Beautiful palace grounds and vibrant gardens.",
+                    "Detailed view of the palace architecture."
+                ],
+                "imageCopyrights": [
+                    "<a href=\"#\" style=\"color: #90caf9; text-decoration: none;\" target=\"_blank\">&copy; Image Source 1</a>",
+                    "<a href=\"#\" style=\"color: #90caf9; text-decoration: none;\" target=\"_blank\">&copy; Image Source 2</a>",
+                    "<a href=\"#\" style=\"color: #90caf9; text-decoration: none;\" target=\"_blank\">&copy; Image Source 3</a>",
+                    "<a href=\"#\" style=\"color: #90caf9; text-decoration: none;\" target=\"_blank\">&copy; Image Source 4</a>"
                 ]
             }'>
                 <div class="card-img-wrapper">
                     <img src="images/Bangalore_Palace_1.jpeg" alt="Bangalore Palace">
-
                 </div>
                 <div class="historic-card-body">
                     <h3>Bangalore Palace</h3>
@@ -128,9 +139,11 @@
             <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
 
             <div class="modal-gallery-container">
-                <div class="modal-main-image-box">
+                <div class="modal-main-image-box" style="position: relative;">
                     <img id="modal-main-img" src="" alt="Landmark view">
+                    <div id="modal-copyright" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.6); color: white; padding: 4px 8px; font-size: 0.85em; text-align: center; box-sizing: border-box; display: none;"></div>
                 </div>
+                <div id="modal-caption" style="text-align: center; font-size: 0.95em; margin-top: 10px; color: #444; font-weight: 500; min-height: 1.2em;"></div>
                 <div class="modal-thumbs-row" id="modal-thumbs"></div>
             </div>
 
@@ -162,8 +175,28 @@
             const data = JSON.parse(card.dataset.info);
             modalTitle.textContent = data.title;
             modalDesc.textContent = data.description;
+            
+            const copyrightBox = document.getElementById('modal-copyright');
+            const captionBox = document.getElementById('modal-caption');
+
+            function updateImageDetails(index) {
+                if (data.imageCopyrights && data.imageCopyrights[index]) {
+                    copyrightBox.innerHTML = data.imageCopyrights[index];
+                    copyrightBox.style.display = 'block';
+                } else {
+                    copyrightBox.style.display = 'none';
+                }
+
+                if (data.imageCaptions && data.imageCaptions[index]) {
+                    captionBox.textContent = data.imageCaptions[index];
+                } else {
+                    captionBox.textContent = '';
+                }
+            }
+
             // Set main image and thumbnails
             mainImage.src = data.images[0];
+            updateImageDetails(0);
             thumbsContainer.innerHTML = '';
             
             data.images.forEach((imgUrl, index) => {
@@ -173,6 +206,7 @@
                 thumb.addEventListener('click', (e) => {
                     e.stopPropagation();
                     mainImage.src = imgUrl;
+                    updateImageDetails(index);
                     document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
                     thumb.classList.add('active');
                 });
