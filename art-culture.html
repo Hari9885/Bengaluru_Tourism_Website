@@ -150,8 +150,30 @@
         const mainImage = document.getElementById('modal-main-img');
         const thumbsContainer = document.getElementById('modal-thumbs');
 
+        
+        let currentModalData = null;
+        let currentImageIndex = 0;
+
+        function navigateImage(direction) {
+            if (!currentModalData || !currentModalData.images || currentModalData.images.length === 0) return;
+            
+            let newIndex = currentImageIndex + direction;
+            if (newIndex < 0) {
+                newIndex = currentModalData.images.length - 1;
+            } else if (newIndex >= currentModalData.images.length) {
+                newIndex = 0;
+            }
+            
+            const thumbs = thumbsContainer.querySelectorAll('.modal-thumb');
+            if (thumbs[newIndex]) {
+                thumbs[newIndex].click();
+            }
+        }
+
         function populateAndOpenModal(card) {
             const data = JSON.parse(card.dataset.info);
+            currentModalData = data;
+            currentImageIndex = 0;
             modalTitle.textContent = data.title;
             modalDesc.textContent = data.description;
             mainImage.src = data.images[0];
@@ -164,6 +186,7 @@
                 thumb.addEventListener('click', (e) => {
                     e.stopPropagation();
                     mainImage.src = imgUrl;
+                    currentImageIndex = index;
                     document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
                     thumb.classList.add('active');
                 });
@@ -192,7 +215,11 @@
         modalCloseBtn.addEventListener('click', closeModal);
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
+            if (modalOverlay.classList.contains('active')) {
+                if (e.key === 'Escape') closeModal();
+                else if (e.key === 'ArrowLeft') navigateImage(-1);
+                else if (e.key === 'ArrowRight') navigateImage(1);
+            }
         });
     </script>
 
