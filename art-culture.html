@@ -4,223 +4,1459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art &amp; Culture | Bengaluru Tourism</title>
+
+    <title>Art & Culture | Bengaluru Tourism</title>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
     <nav class="navbar">
-        <a href="index.html" class="logo">Bengaluru Tourism</a>
+
+        <a href="index.html" class="logo">
+            Bengaluru Tourism
+        </a>
+
         <ul class="nav-links">
-            <li><a href="historic.html">Historic</a></li>
-            <li><a href="administrative.html">Administrative</a></li>
-            <li><a href="wildlife.html">Wildlife</a></li>
-            <li><a href="religious.html">Religious</a></li>
-            <li><a href="commercial.html">Commercial</a></li>
-            <li><a href="art-culture.html" class="active">Art &amp; Culture</a></li>
+
+            <li>
+                <a href="historic.html">
+                    Historic
+                </a>
+            </li>
+
+            <li>
+                <a href="administrative.html">
+                    Administrative
+                </a>
+            </li>
+
+            <li>
+                <a href="wildlife.html">
+                    Wildlife
+                </a>
+            </li>
+
+            <li>
+                <a href="religious.html">
+                    Religious
+                </a>
+            </li>
+
+            <li>
+                <a href="commercial.html">
+                    Commercial
+                </a>
+            </li>
+
+            <li>
+                <a href="art-culture.html" class="active">
+                    Art & Culture
+                </a>
+            </li>
+
         </ul>
+
     </nav>
 
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
     <header class="page-header">
-        <h1>Art &amp; Culture</h1>
-        <p>Experience Bengaluru's art, music, dance, festivals, museums, theatres and cultural traditions.</p>
+
+        <h1>
+            Art & Culture
+        </h1>
+
+        <p>
+            Experience Bengaluru's art, music, dance, festivals, museums, theatres and cultural traditions.
+        </p>
+
     </header>
 
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
     <main class="section">
-        <h2>Art &amp; Cultural Landmarks</h2>
-        <p class="intro">Click any landmark card below to open an interactive view with multiple photos, history, timings, and visiting details.</p>
+
+        <h2>
+            Art & Cultural Landmarks
+        </h2>
+
+        <p class="intro">
+            Click any landmark card below to open an interactive view with multiple photos, history,
+            timings, and visiting details.
+        </p>
+
 
         <div class="historic-grid">
 
-            <!-- Card 1: National Gallery of Modern Art -->
-            <div class="historic-card" data-info='{
-                "title": "National Gallery of Modern Art (NGMA)",
-                "description": "The NGMA Bengaluru is housed in a beautifully restored 19th-century mansion called Manikyavelu Mansion. It is one of three National Gallery branches in India and showcases an impressive collection of Indian modern and contemporary art spanning paintings, sculptures, prints, and photography. The lush garden setting adds to the charm of this cultural gem.",
-                "images": [
-                    "images/National_Gallery_1.jpg",
-                    "images/National_Gallery_2.jpg",
-                    "images/National_Gallery_3.jpg",
-                    "images/National_Gallery_4.jpg"
-                ]
-            }'>
+
+            <!-- =========================
+                 CARD 1
+                 NATIONAL GALLERY OF MODERN ART
+            ========================== -->
+
+            <div
+                class="historic-card"
+                data-place="0"
+            >
+
                 <div class="card-img-wrapper">
-                    <img src="images/National_Gallery_1.jpg" alt="National Gallery of Modern Art">
+
+                    <img
+                        src="images/National_Gallery_1.jpg"
+                        alt="National Gallery of Modern Art"
+                    >
+
                 </div>
+
+
                 <div class="historic-card-body">
-                    <h3>National Gallery of Modern Art</h3>
-                    <p>A restored 19th-century mansion showcasing Indian modern and contemporary art — paintings, sculptures, and photography.</p>
-                    <span class="card-action-link">View Details &amp; Gallery →</span>
+
+                    <h3>
+                        National Gallery of Modern Art
+                    </h3>
+
+                    <p>
+                        A restored 19th-century mansion showcasing Indian modern and
+                        contemporary art — paintings, sculptures, and photography.
+                    </p>
+
+                    <span class="card-action-link">
+                        View Details & Gallery →
+                    </span>
+
                 </div>
+
             </div>
 
-            <!-- Card 2: Ranga Shankara Theatre
-            <div class="historic-card" data-info='{
-                "title": "Ranga Shankara",
-                "description": "Ranga Shankara is a world-class intimate theatre space that has become the epicentre of Bengaluru performing arts scene. Founded by actress Arundhati Nag in memory of Shankar Nag, this 300-seat auditorium hosts over 300 shows a year in Kannada, English, Hindi, and other languages — ranging from experimental plays to classical dance and music performances.",
-                "images": [
-                    "images/National_Gallery_of_Modern_Art,_Bangalore_(2025)_51.jpg",
-                    "images/Entrance_of_Iskcon_temple.jpg",
-                    "images/Entrance_of_Shivaganga.jpeg"
-                ]
-            }'>
-                <div class="card-img-wrapper">
-                    <img src="images/National_Gallery_of_Modern_Art,_Bangalore_(2025)_51.jpg" alt="Ranga Shankara Theatre">
-                </div>
-                <div class="historic-card-body">
-                    <h3>Ranga Shankara</h3>
-                    <p>Bengaluru's beloved 300-seat theatre, hosting over 300 performances a year across languages and art forms.</p>
-                    <span class="card-action-link">View Details &amp; Gallery →</span>
-                </div>
-            </div> -->
 
-            <!-- Card 3: Government Museum -->
-            <div class="historic-card" data-info='{
-                "title": "Government Museum (Venkatappa Art Gallery)",
-                "description": "Established in 1886, the Government Museum in Bengaluru is one of the oldest museums in India. It houses an eclectic collection of archaeological artefacts, Neolithic-era tools, Vijayanagara coins, Halebidu sculptures, geological specimens, and ancient textiles. The adjoining Venkatappa Art Gallery displays works by the court painter K. Venkatappa.",
-                "images": [
-                    "images/Venkatappa_Art_Gallery_1.jpg",
-                    "images/Venkatappa_Art_Gallery_2.jpg",
-                    "images/Venkatappa_Art_Gallery_3.jpg"
-                ]
-            }'>
+            <!-- =========================
+                 CARD 2
+                 RANGA SHANKARA
+                 
+                 Kept commented out exactly
+                 as in the original file.
+            ========================== -->
+
+            <!--
+
+            <div
+                class="historic-card"
+                data-place="1"
+            >
+
                 <div class="card-img-wrapper">
-                    <img src="images/Venkatappa_Art_Gallery_1.jpg" alt="Government Museum">
+
+                    <img
+                        src="images/National_Gallery_of_Modern_Art,_Bangalore_(2025)_51.jpg"
+                        alt="Ranga Shankara Theatre"
+                    >
+
                 </div>
+
                 <div class="historic-card-body">
-                    <h3>Government Museum</h3>
-                    <p>One of India's oldest museums (1886) with Vijayanagara coins, Halebidu sculptures, and Neolithic-era tools.</p>
-                    <span class="card-action-link">View Details &amp; Gallery →</span>
+
+                    <h3>
+                        Ranga Shankara
+                    </h3>
+
+                    <p>
+                        Bengaluru's beloved 300-seat theatre, hosting over 300 performances
+                        a year across languages and art forms.
+                    </p>
+
+                    <span class="card-action-link">
+                        View Details & Gallery →
+                    </span>
+
                 </div>
+
             </div>
 
-            <!-- Card 4: Chitrakala Parishath -->
-            <div class="historic-card" data-info='{
-                "title": "Karnataka Chitrakala Parishath",
-                "description": "Karnataka Chitrakala Parishath is a premier art institution and gallery complex in Bengaluru. It houses multiple exhibition halls displaying traditional Karnataka art forms, folk art, contemporary installations, and rotating exhibitions by emerging artists. The complex also includes an art college, open-air sculpture gardens, and hosts annual art festivals that draw artists from across the country.",
-                "images": [
-                    "images/Chitrakala_Parishat_0.jpg",
-                    "images/Chitrakala_Parishat_1.jpg"
-                ]
-            }'>
+            -->
+
+
+            <!-- =========================
+                 CARD 2
+                 GOVERNMENT MUSEUM
+            ========================== -->
+
+            <div
+                class="historic-card"
+                data-place="1"
+            >
+
                 <div class="card-img-wrapper">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Citrakala_Parishat.jpg/500px-Citrakala_Parishat.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" alt="Chitrakala Parishath">
+
+                    <img
+                        src="images/Venkatappa_Art_Gallery_1.jpg"
+                        alt="Government Museum and Venkatappa Art Gallery"
+                    >
+
                 </div>
+
+
                 <div class="historic-card-body">
-                    <h3>Chitrakala Parishath</h3>
-                    <p>A premier art institution with galleries showcasing traditional Karnataka art, folk art, and contemporary installations.</p>
-                    <span class="card-action-link">View Details &amp; Gallery →</span>
+
+                    <h3>
+                        Government Museum
+                    </h3>
+
+                    <p>
+                        One of India's oldest museums (1886) with Vijayanagara coins,
+                        Halebidu sculptures, and Neolithic-era tools.
+                    </p>
+
+                    <span class="card-action-link">
+                        View Details & Gallery →
+                    </span>
+
                 </div>
+
             </div>
+
+
+            <!-- =========================
+                 CARD 3
+                 CHITRAKALA PARISHATH
+            ========================== -->
+
+            <div
+                class="historic-card"
+                data-place="2"
+            >
+
+                <div class="card-img-wrapper">
+
+                    <img
+                        src="images/Chitrakala_Parishat_0.jpg"
+                        alt="Karnataka Chitrakala Parishath"
+                    >
+
+                </div>
+
+
+                <div class="historic-card-body">
+
+                    <h3>
+                        Chitrakala Parishath
+                    </h3>
+
+                    <p>
+                        A premier art institution with galleries showcasing traditional
+                        Karnataka art, folk art, and contemporary installations.
+                    </p>
+
+                    <span class="card-action-link">
+                        View Details & Gallery →
+                    </span>
+
+                </div>
+
+            </div>
+
 
         </div>
+
     </main>
 
-    <!-- MODAL OVERLAY -->
-    <div id="modal-overlay" class="modal-overlay">
-        <div class="modal-card">
-            <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+
+    <!-- =========================
+         MODAL OVERLAY
+    ========================== -->
+
+    <div
+        id="modal-overlay"
+        class="modal-overlay"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+        >
+
+            <!-- Close button -->
+
+            <button
+                class="modal-close-btn"
+                id="modal-close"
+                aria-label="Close modal"
+                type="button"
+            >
+                &times;
+            </button>
+
+
+            <!-- =========================
+                 GALLERY
+            ========================== -->
 
             <div class="modal-gallery-container">
-                <div class="modal-main-image-box">
-                    <img id="modal-main-img" src="" alt="Landmark view">
+
+                <div
+                    class="modal-main-image-box"
+                    style="position: relative;"
+                >
+
+                    <img
+                        id="modal-main-img"
+                        src=""
+                        alt="Landmark view"
+                    >
+
+
+                    <!-- Image Copyright -->
+
+                    <div
+                        id="modal-copyright"
+                        style="
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            background: rgba(0, 0, 0, 0.65);
+                            color: white;
+                            padding: 6px 10px;
+                            font-size: 0.8em;
+                            line-height: 1.4;
+                            text-align: center;
+                            box-sizing: border-box;
+                            display: none;
+                            z-index: 2;
+                        "
+                    ></div>
+
                 </div>
-                <div class="modal-thumbs-row" id="modal-thumbs"></div>
+
+
+                <!-- Image caption -->
+
+                <div
+                    id="modal-caption"
+                    style="
+                        text-align: center;
+                        font-size: 0.85em;
+                        margin-top: 8px;
+                        color: #444;
+                        font-weight: 500;
+                        min-height: 1.2em;
+                    "
+                ></div>
+
+
+                <!-- Thumbnail row -->
+
+                <div
+                    class="modal-thumbs-row"
+                    id="modal-thumbs"
+                ></div>
+
             </div>
+
+
+            <!-- =========================
+                 MODAL INFORMATION
+            ========================== -->
 
             <div class="modal-info-box">
-                <h2 id="modal-title"></h2>
-                <p class="modal-desc-text" id="modal-desc"></p>
 
-                </div>
+                <h2 id="modal-title"></h2>
+
+                <p
+                    class="modal-desc-text"
+                    id="modal-desc"
+                ></p>
+
             </div>
+
         </div>
+
     </div>
 
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
-        <p>&copy; 2026 Bengaluru Tourism | Karnataka, India</p>
+
+        <p>
+            &copy; 2026 Bengaluru Tourism | Karnataka, India
+        </p>
+
     </footer>
 
-    <script>
-        const cards = document.querySelectorAll('.historic-card');
-        const modalOverlay = document.getElementById('modal-overlay');
-        const modalCloseBtn = document.getElementById('modal-close');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDesc = document.getElementById('modal-desc');
-        const mainImage = document.getElementById('modal-main-img');
-        const thumbsContainer = document.getElementById('modal-thumbs');
 
-        
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+        ============================================================
+        ART & CULTURE DATA
+        ============================================================
+        All landmark information lives here instead of inside
+        data-info HTML attributes.
+
+        This prevents JSON parsing problems when HTML links or
+        copyright information are included.
+        ============================================================
+        */
+
+        const artCulturePlaces = [
+
+            /* ====================================================
+               1. NATIONAL GALLERY OF MODERN ART
+            ==================================================== */
+
+            {
+                title: "National Gallery of Modern Art (NGMA)",
+
+                description:
+                    "The NGMA Bengaluru is housed in a beautifully restored 19th-century mansion called Manikyavelu Mansion. It is one of three National Gallery branches in India and showcases an impressive collection of Indian modern and contemporary art spanning paintings, sculptures, prints, and photography. The lush garden setting adds to the charm of this cultural gem.",
+
+                images: [
+
+                    "images/National_Gallery_1.jpg",
+
+                    "images/National_Gallery_2.jpg",
+
+                    "images/National_Gallery_3.jpg",
+
+                    "images/National_Gallery_4.jpg"
+
+                ],
+
+                imageCaptions: [
+
+                    "Exterior view of the National Gallery of Modern Art.",
+
+                    "A different view of the National Gallery of Modern Art.",
+
+                    "Architectural details of the National Gallery.",
+
+                    "Another view of the NGMA Bengaluru."
+
+                ],
+
+                imageCopyrights: [
+
+                    `
+                    By
+                    <a
+                        href="https://commons.wikimedia.org/wiki/User:Gpkp"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Gpkp
+                    </a>
+                    -
+                    Own work |
+                    <a
+                        href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        CC BY-SA 4.0
+                    </a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=173347785"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Image Source
+                    </a>
+                    `,
+
+                    `
+                    By
+                    <a
+                        href="https://commons.wikimedia.org/wiki/User:Gpkp"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Gpkp
+                    </a>
+                    -
+                    Own work |
+                    <a
+                        href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        CC BY-SA 4.0
+                    </a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=173347628"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Image Source
+                    </a>
+                    `,
+
+                    `
+                    By
+                    <a
+                        href="https://commons.wikimedia.org/wiki/User:Gpkp"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Gpkp
+                    </a>
+                    -
+                    Own work |
+                    <a
+                        href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        CC BY-SA 4.0
+                    </a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=173347704"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Image Source
+                    </a>
+                    `,
+
+                    `
+                    By
+                    <a
+                        href="https://commons.wikimedia.org/wiki/User:Gpkp"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Gpkp
+                    </a>
+                    -
+                    Own work |
+                    <a
+                        href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        CC BY-SA 4.0
+                    </a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=173347800"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Image Source
+                    </a>
+                    `
+
+                ]
+            },
+
+
+            /* ====================================================
+               2. GOVERNMENT MUSEUM / VENKATAPPA ART GALLERY
+            ==================================================== */
+
+            {
+                title: "Government Museum (Venkatappa Art Gallery)",
+
+                description:
+                    "Established in 1886, the Government Museum in Bengaluru is one of the oldest museums in India. It houses an eclectic collection of archaeological artefacts, Neolithic-era tools, Vijayanagara coins, Halebidu sculptures, geological specimens, and ancient textiles. The adjoining Venkatappa Art Gallery displays works by the court painter K. Venkatappa.",
+
+                images: [
+
+                    "images/Venkatappa_Art_Gallery_1.jpg",
+
+                    "images/Venkatappa_Art_Gallery_2.jpg",
+
+                    "images/Venkatappa_Art_Gallery_3.jpg"
+
+                ],
+
+                imageCaptions: [
+
+                    "Venkatappa Art Gallery and Government Museum.",
+
+                    "Another view of the Venkatappa Art Gallery.",
+
+                    "Interior or architectural view of the gallery."
+
+                ],
+
+                imageCopyrights: [
+
+                    `
+                    By
+                    <a
+                        href="https://commons.wikimedia.org/wiki/User:Gpkp"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Gpkp
+                    </a>
+                    -
+                    Own work |
+                    <a
+                        href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        CC BY-SA 4.0
+                    </a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=188674924"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Image Source
+                    </a>
+                    `,
+
+                    `
+                    By
+                    <a
+                        href="https://commons.wikimedia.org/wiki/User:Gpkp"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Gpkp
+                    </a>
+                    -
+                    Own work |
+                    <a
+                        href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        CC BY-SA 4.0
+                    </a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=188674910"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Image Source
+                    </a>
+                    `,
+
+                    `
+                    By
+                    <a
+                        href="https://commons.wikimedia.org/wiki/User:Gpkp"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Gpkp
+                    </a>
+                    -
+                    Own work |
+                    <a
+                        href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        CC BY-SA 4.0
+                    </a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=188675056"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Image Source
+                    </a>
+                    `
+
+                ]
+            },
+
+
+            /* ====================================================
+               3. KARNATAKA CHITRAKALA PARISHATH
+            ==================================================== */
+
+            {
+                title: "Karnataka Chitrakala Parishath",
+
+                description:
+                    "Karnataka Chitrakala Parishath is a premier art institution and gallery complex in Bengaluru. It houses multiple exhibition halls displaying traditional Karnataka art forms, folk art, contemporary installations, and rotating exhibitions by emerging artists. The complex also includes an art college, open-air sculpture gardens, and hosts annual art festivals that draw artists from across the country.",
+
+                images: [
+
+                    "images/Chitrakala_Parishat_0.jpg",
+
+                    "images/Chitrakala_Parishat_1.jpg"
+
+                ],
+
+                imageCaptions: [
+
+                    "Karnataka Chitrakala Parishath.",
+
+                    "Another view of Karnataka Chitrakala Parishath."
+
+                ],
+
+                imageCopyrights: [
+
+                    `
+                    By
+                    <a
+                        href="https://en.wikipedia.org/wiki/User:Rajesh_dangi"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Rajesh_dangi
+                    </a>
+                    -
+                    Own work |
+                    <a
+                        href="https://creativecommons.org/licenses/by/3.0/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        CC BY 3.0
+                    </a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=143955369"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Image Source
+                    </a>
+                    `,
+
+                    `
+                    By
+                    <a
+                        href="https://en.wikipedia.org/wiki/User:Rajesh_dangi"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Rajesh_dangi
+                    </a>
+                    -
+                    Own work |
+                    <a
+                        href="https://creativecommons.org/licenses/by/3.0/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        CC BY 3.0
+                    </a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=143955368"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Image Source
+                    </a>
+                    `
+
+                ]
+            }
+
+        ];
+
+
+        /*
+        ============================================================
+        DOM ELEMENTS
+        ============================================================
+        */
+
+        const cards =
+            document.querySelectorAll(".historic-card");
+
+        const modalOverlay =
+            document.getElementById("modal-overlay");
+
+        const modalCloseBtn =
+            document.getElementById("modal-close");
+
+        const modalTitle =
+            document.getElementById("modal-title");
+
+        const modalDesc =
+            document.getElementById("modal-desc");
+
+        const mainImage =
+            document.getElementById("modal-main-img");
+
+        const thumbsContainer =
+            document.getElementById("modal-thumbs");
+
+        const copyrightBox =
+            document.getElementById("modal-copyright");
+
+        const captionBox =
+            document.getElementById("modal-caption");
+
+
+        /*
+        ============================================================
+        CURRENT STATE
+        ============================================================
+        */
+
         let currentModalData = null;
+
         let currentImageIndex = 0;
 
+
+        /*
+        ============================================================
+        UPDATE IMAGE DETAILS
+        ============================================================
+        */
+
+        function updateImageDetails(index) {
+
+            currentImageIndex = index;
+
+
+            /*
+            --------------------------------------------------------
+            COPYRIGHT
+            --------------------------------------------------------
+            */
+
+            if (
+                currentModalData.imageCopyrights &&
+                currentModalData.imageCopyrights[index] &&
+                currentModalData.imageCopyrights[index].trim() !== ""
+            ) {
+
+                copyrightBox.innerHTML =
+                    currentModalData.imageCopyrights[index];
+
+                copyrightBox.style.display =
+                    "block";
+
+            } else {
+
+                copyrightBox.innerHTML =
+                    "";
+
+                copyrightBox.style.display =
+                    "none";
+
+            }
+
+
+            /*
+            --------------------------------------------------------
+            CAPTION
+            --------------------------------------------------------
+            */
+
+            if (
+                currentModalData.imageCaptions &&
+                currentModalData.imageCaptions[index]
+            ) {
+
+                captionBox.textContent =
+                    currentModalData.imageCaptions[index];
+
+            } else {
+
+                captionBox.textContent =
+                    "";
+
+            }
+
+        }
+
+
+        /*
+        ============================================================
+        SHOW IMAGE
+        ============================================================
+        */
+
+        function showImage(index) {
+
+            if (
+                !currentModalData ||
+                !currentModalData.images ||
+                currentModalData.images.length === 0
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+            Loop backwards
+            */
+
+            if (index < 0) {
+
+                index =
+                    currentModalData.images.length - 1;
+
+            }
+
+
+            /*
+            Loop forwards
+            */
+
+            if (
+                index >=
+                currentModalData.images.length
+            ) {
+
+                index = 0;
+
+            }
+
+
+            currentImageIndex =
+                index;
+
+
+            /*
+            Main image
+            */
+
+            mainImage.src =
+                currentModalData.images[index];
+
+            mainImage.alt =
+                `${currentModalData.title} - Image ${index + 1}`;
+
+
+            /*
+            Update copyright and caption
+            */
+
+            updateImageDetails(index);
+
+
+            /*
+            Update active thumbnail
+            */
+
+            const thumbs =
+                thumbsContainer.querySelectorAll(
+                    ".modal-thumb"
+                );
+
+
+            thumbs.forEach(
+                function (thumb, i) {
+
+                    thumb.classList.toggle(
+                        "active",
+                        i === index
+                    );
+
+                }
+            );
+
+        }
+
+
+        /*
+        ============================================================
+        NEXT / PREVIOUS IMAGE
+        ============================================================
+        */
+
         function navigateImage(direction) {
-            if (!currentModalData || !currentModalData.images || currentModalData.images.length === 0) return;
-            
-            let newIndex = currentImageIndex + direction;
+
+            if (!currentModalData) {
+
+                return;
+
+            }
+
+
+            const totalImages =
+                currentModalData.images.length;
+
+
+            if (totalImages === 0) {
+
+                return;
+
+            }
+
+
+            let newIndex =
+                currentImageIndex + direction;
+
+
             if (newIndex < 0) {
-                newIndex = currentModalData.images.length - 1;
-            } else if (newIndex >= currentModalData.images.length) {
+
+                newIndex =
+                    totalImages - 1;
+
+            }
+
+
+            if (newIndex >= totalImages) {
+
                 newIndex = 0;
+
             }
-            
-            const thumbs = thumbsContainer.querySelectorAll('.modal-thumb');
-            if (thumbs[newIndex]) {
-                thumbs[newIndex].click();
-            }
+
+
+            showImage(newIndex);
+
         }
 
-        function populateAndOpenModal(card) {
-            const data = JSON.parse(card.dataset.info);
-            currentModalData = data;
-            currentImageIndex = 0;
-            modalTitle.textContent = data.title;
-            modalDesc.textContent = data.description;
-            mainImage.src = data.images[0];
-            thumbsContainer.innerHTML = '';
 
-            data.images.forEach((imgUrl, index) => {
-                const thumb = document.createElement('div');
-                thumb.className = `modal-thumb ${index === 0 ? 'active' : ''}`;
-                thumb.innerHTML = `<img src="${imgUrl}" alt="${data.title}">`;
-                thumb.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    mainImage.src = imgUrl;
-                    currentImageIndex = index;
-                    document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
-                    thumb.classList.add('active');
-                });
-                thumbsContainer.appendChild(thumb);
-            });
+        /*
+        ============================================================
+        OPEN MODAL
+        ============================================================
+        */
 
-            modalOverlay.classList.add('active');
+        function populateAndOpenModal(placeIndex) {
+
+            const data =
+                artCulturePlaces[placeIndex];
+
+
+            if (!data) {
+
+                console.error(
+                    "Art & Culture place not found:",
+                    placeIndex
+                );
+
+                return;
+
+            }
+
+
+            currentModalData =
+                data;
+
+            currentImageIndex =
+                0;
+
+
+            /*
+            --------------------------------------------------------
+            SET TEXT
+            --------------------------------------------------------
+            */
+
+            modalTitle.textContent =
+                data.title;
+
+            modalDesc.textContent =
+                data.description;
+
+
+            /*
+            --------------------------------------------------------
+            CLEAR PREVIOUS THUMBNAILS
+            --------------------------------------------------------
+            */
+
+            thumbsContainer.innerHTML =
+                "";
+
+
+            /*
+            --------------------------------------------------------
+            CREATE THUMBNAILS
+            --------------------------------------------------------
+            */
+
+            data.images.forEach(
+                function (imgUrl, index) {
+
+                    const thumb =
+                        document.createElement("div");
+
+
+                    thumb.className =
+                        "modal-thumb";
+
+
+                    if (index === 0) {
+
+                        thumb.classList.add(
+                            "active"
+                        );
+
+                    }
+
+
+                    const img =
+                        document.createElement("img");
+
+
+                    img.src =
+                        imgUrl;
+
+
+                    img.alt =
+                        `${data.title} thumbnail ${index + 1}`;
+
+
+                    /*
+                    ------------------------------------------------
+                    IMAGE ERROR HANDLER
+                    ------------------------------------------------
+                    */
+
+                    img.onerror =
+                        function () {
+
+                            this.style.opacity =
+                                "0.4";
+
+                        };
+
+
+                    thumb.appendChild(img);
+
+
+                    /*
+                    ------------------------------------------------
+                    THUMBNAIL CLICK
+                    ------------------------------------------------
+                    */
+
+                    thumb.addEventListener(
+                        "click",
+                        function (event) {
+
+                            event.stopPropagation();
+
+                            showImage(index);
+
+                        }
+                    );
+
+
+                    thumbsContainer.appendChild(
+                        thumb
+                    );
+
+                }
+            );
+
+
+            /*
+            --------------------------------------------------------
+            SHOW FIRST IMAGE
+            --------------------------------------------------------
+            */
+
+            showImage(0);
+
+
+            /*
+            --------------------------------------------------------
+            OPEN MODAL
+            --------------------------------------------------------
+            */
+
+            modalOverlay.classList.add(
+                "active"
+            );
+
+
+            modalOverlay.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+            /*
+            --------------------------------------------------------
+            STOP BACKGROUND SCROLL
+            --------------------------------------------------------
+            */
+
+            document.body.style.overflow =
+                "hidden";
+
         }
+
+
+        /*
+        ============================================================
+        CLOSE MODAL
+        ============================================================
+        */
 
         function closeModal() {
-            modalOverlay.classList.remove('active');
+
+            modalOverlay.classList.remove(
+                "active"
+            );
+
+
+            modalOverlay.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+
+            document.body.style.overflow =
+                "";
+
+
+            /*
+            Clear modal content after closing
+            */
+
+            setTimeout(
+                function () {
+
+                    if (
+                        !modalOverlay.classList.contains(
+                            "active"
+                        )
+                    ) {
+
+                        mainImage.src =
+                            "";
+
+                        thumbsContainer.innerHTML =
+                            "";
+
+                        copyrightBox.innerHTML =
+                            "";
+
+                    }
+
+                },
+                250
+            );
+
         }
 
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                populateAndOpenModal(card);
-            });
-        });
 
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                closeModal();
+        /*
+        ============================================================
+        CARD CLICK EVENTS
+        ============================================================
+        */
+
+        cards.forEach(
+            function (card) {
+
+                card.addEventListener(
+                    "click",
+                    function () {
+
+                        const placeIndex =
+                            parseInt(
+                                card.dataset.place,
+                                10
+                            );
+
+
+                        if (
+                            Number.isNaN(
+                                placeIndex
+                            )
+                        ) {
+
+                            console.error(
+                                "Invalid place index:",
+                                card.dataset.place
+                            );
+
+                            return;
+
+                        }
+
+
+                        populateAndOpenModal(
+                            placeIndex
+                        );
+
+                    }
+                );
+
             }
-        });
+        );
 
-        modalCloseBtn.addEventListener('click', closeModal);
 
-        document.addEventListener('keydown', (e) => {
-            if (modalOverlay.classList.contains('active')) {
-                if (e.key === 'Escape') closeModal();
-                else if (e.key === 'ArrowLeft') navigateImage(-1);
-                else if (e.key === 'ArrowRight') navigateImage(1);
+        /*
+        ============================================================
+        BACKDROP CLICK
+        ============================================================
+        */
+
+        modalOverlay.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target ===
+                    modalOverlay
+                ) {
+
+                    closeModal();
+
+                }
+
             }
-        });
+        );
+
+
+        /*
+        ============================================================
+        CLOSE BUTTON
+        ============================================================
+        */
+
+        modalCloseBtn.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        /*
+        ============================================================
+        KEYBOARD CONTROLS
+        ============================================================
+        */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    !modalOverlay.classList.contains(
+                        "active"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                /*
+                Escape
+                */
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeModal();
+
+                    return;
+
+                }
+
+
+                /*
+                Previous
+                */
+
+                if (
+                    event.key === "ArrowLeft"
+                ) {
+
+                    navigateImage(-1);
+
+                    return;
+
+                }
+
+
+                /*
+                Next
+                */
+
+                if (
+                    event.key === "ArrowRight"
+                ) {
+
+                    navigateImage(1);
+
+                    return;
+
+                }
+
+            }
+        );
+
+
+        /*
+        ============================================================
+        MAIN IMAGE ERROR HANDLER
+        ============================================================
+        */
+
+        mainImage.addEventListener(
+            "error",
+            function () {
+
+                console.error(
+                    "Could not load image:",
+                    mainImage.src
+                );
+
+            }
+        );
+
     </script>
 
 </body>
