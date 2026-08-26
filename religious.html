@@ -39,8 +39,8 @@
                 "description": "The ISKCON Temple in Bengaluru is one of the largest ISKCON temples in the world. Perched atop Hare Krishna Hill, this stunning temple complex blends modern architecture with traditional Dravidian and Rajasthani styles. It features an ornate gold-plated main altar, a Vedic museum, an open-air theatre, and hosts grand celebrations during Janmashtami.",
                 "images": [
                     "images/Entrance_of_Iskcon_temple.jpg",
-                    "images/Someshwara_temple.jpg",
-                    "images/Lalbagh_lake_view.jpg"
+                    "images/Isckon 4.jpeg",
+                    "images/Isckon 3.jpeg"
                 ]
             }'>
                 <div class="card-img-wrapper">
@@ -59,8 +59,8 @@
                 "description": "Someshwara Temple is one of the oldest temples in Bengaluru, dating back to the Chola period. Dedicated to Lord Shiva, it features intricate Dravidian-style carvings, massive granite pillars, and a serene temple tank. The temple complex also includes shrines to Parvati, Ganesha, and Nandi, and is a tranquil retreat amidst the bustling Ulsoor neighbourhood.",
                 "images": [
                     "images/Someshwara_temple.jpg",
-                    "images/Entrance_of_Iskcon_temple.jpg",
-                    "images/Lalbagh_lake_view.jpg"
+                    "images/Someshwara temple 1.jpg",
+                    "images/Someshwara temple 2.jpg"
                 ]
             }'>
                 <div class="card-img-wrapper">
@@ -75,16 +75,15 @@
 
             <!-- Card 3: St. Mary's Basilica -->
             <div class="historic-card" data-info='{
-                "title": "St. Mary's Basilica",
-                "description": "St. Mary's Basilica is one of the oldest churches in Bengaluru. Elevated to the status of a minor basilica by Pope John Paul II in 1973, it is known for its Gothic-style architecture, stained-glass windows, and the annual St. Mary's Feast in September — one of the largest religious gatherings in Bengaluru drawing over a million devotees.",
+                "title": "St. Mary&#39;s Basilica",
+                "description": "St. Mary&#39;s Basilica is one of the oldest churches in Bengaluru. Elevated to the status of a minor basilica by Pope John Paul II in 1973, it is known for its Gothic-style architecture, stained-glass windows, and the annual St. Mary&#39;s Feast in September — one of the largest religious gatherings in Bengaluru drawing over a million devotees.",
                 "images": [
-                    "images/Entrance_of_Iskcon_temple.jpg",
-                    "images/Someshwara_temple.jpg",
-                    "https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d"
+                    "images/stm.jpeg",
+                    "images/St mary&#39;s 1.jpg"
                 ]
             }'>
                 <div class="card-img-wrapper">
-                    <img src="images/Entrance_of_Iskcon_temple.jpg" alt="St. Mary's Basilica">
+                    <img src="images/St mary&#39;s 1.jpg" alt="St. Mary's Basilica">
                 </div>
                 <div class="historic-card-body">
                     <h3>St. Mary's Basilica</h3>
@@ -92,29 +91,6 @@
                     <span class="card-action-link">View Details &amp; Gallery →</span>
                 </div>
             </div>
-
-            <!-- Card 4: Jumma Masjid -->
-            <div class="historic-card" data-info='{
-                "title": "Jumma Masjid",
-                "description": "The Jumma Masjid near KR Market is one of the largest and busiest mosques in Bengaluru. Its towering minarets, grand dome, and spacious prayer hall can accommodate thousands of worshippers. Located in the heart of the old city, it serves as a spiritual and community centre for the local Muslim population and is an important landmark in Bengaluru's multicultural tapestry.",
-                "images": [
-                    "images/Someshwara_temple.jpg",
-                    "https://c.pxhere.com/photos/fd/7c/palace_falaknuma_tourist_places_karnataka_bangalore-837158.jpg!d",
-                    "images/Entrance_of_Shivaganga.jpeg"
-                ]
-            }'>
-                <div class="card-img-wrapper">
-                    <img src="images/Someshwara_temple.jpg" alt="Jumma Masjid">
-                </div>
-                <div class="historic-card-body">
-                    <h3>Jumma Masjid</h3>
-                    <p>One of the largest mosques in Bengaluru with towering minarets and a grand dome, near the historic KR Market area.</p>
-                    <span class="card-action-link">View Details &amp; Gallery →</span>
-                </div>
-            </div>
-
-        </div>
-    </main>
 
     <!-- MODAL OVERLAY -->
     <div id="modal-overlay" class="modal-overlay">
@@ -150,30 +126,8 @@
         const mainImage = document.getElementById('modal-main-img');
         const thumbsContainer = document.getElementById('modal-thumbs');
 
-        
-        let currentModalData = null;
-        let currentImageIndex = 0;
-
-        function navigateImage(direction) {
-            if (!currentModalData || !currentModalData.images || currentModalData.images.length === 0) return;
-            
-            let newIndex = currentImageIndex + direction;
-            if (newIndex < 0) {
-                newIndex = currentModalData.images.length - 1;
-            } else if (newIndex >= currentModalData.images.length) {
-                newIndex = 0;
-            }
-            
-            const thumbs = thumbsContainer.querySelectorAll('.modal-thumb');
-            if (thumbs[newIndex]) {
-                thumbs[newIndex].click();
-            }
-        }
-
         function populateAndOpenModal(card) {
             const data = JSON.parse(card.dataset.info);
-            currentModalData = data;
-            currentImageIndex = 0;
             modalTitle.textContent = data.title;
             modalDesc.textContent = data.description;
             mainImage.src = data.images[0];
@@ -186,7 +140,6 @@
                 thumb.addEventListener('click', (e) => {
                     e.stopPropagation();
                     mainImage.src = imgUrl;
-                    currentImageIndex = index;
                     document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
                     thumb.classList.add('active');
                 });
@@ -215,11 +168,7 @@
         modalCloseBtn.addEventListener('click', closeModal);
 
         document.addEventListener('keydown', (e) => {
-            if (modalOverlay.classList.contains('active')) {
-                if (e.key === 'Escape') closeModal();
-                else if (e.key === 'ArrowLeft') navigateImage(-1);
-                else if (e.key === 'ArrowRight') navigateImage(1);
-            }
+            if (e.key === 'Escape') closeModal();
         });
     </script>
 
