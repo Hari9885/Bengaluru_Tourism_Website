@@ -4,265 +4,1093 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Historic Bengaluru | Bengaluru Tourism</title>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
     <nav class="navbar">
-        <a href="index.html" class="logo">Bengaluru Tourism</a>
+
+        <a href="index.html" class="logo">
+            Bengaluru Tourism
+        </a>
+
         <ul class="nav-links">
-            <li><a href="historic.html" class="active">Historic</a></li>
-            <li><a href="administrative.html">Administrative</a></li>
-            <li><a href="wildlife.html">Wildlife</a></li>
-            <li><a href="religious.html">Religious</a></li>
-            <li><a href="commercial.html">Commercial</a></li>
-            <li><a href="art-culture.html">Art & Culture</a></li>
+            <li>
+                <a href="historic.html" class="active">
+                    Historic
+                </a>
+            </li>
+
+            <li>
+                <a href="administrative.html">
+                    Administrative
+                </a>
+            </li>
+
+            <li>
+                <a href="wildlife.html">
+                    Wildlife
+                </a>
+            </li>
+
+            <li>
+                <a href="religious.html">
+                    Religious
+                </a>
+            </li>
+
+            <li>
+                <a href="commercial.html">
+                    Commercial
+                </a>
+            </li>
+
+            <li>
+                <a href="art-culture.html">
+                    Art & Culture
+                </a>
+            </li>
         </ul>
+
     </nav>
 
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
     <header class="page-header">
-        <h1>Historic Bengaluru</h1>
-        <p>Explore Bengaluru's iconic palaces, forts, monuments and centuries of royal heritage.</p>
+
+        <h1>
+            Historic Bengaluru
+        </h1>
+
+        <p>
+            Explore Bengaluru's iconic palaces, forts, monuments and centuries of royal heritage.
+        </p>
+
     </header>
 
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
     <main class="section">
-        <h2>Historic Places & Monuments</h2>
-        <p class="intro">Click any landmark card below to open an interactive view with multiple photos, history, timings, and visiting details.</p>
+
+        <h2>
+            Historic Places & Monuments
+        </h2>
+
+        <p class="intro">
+            Click any landmark card below to open an interactive view with multiple photos, history,
+            timings, and visiting details.
+        </p>
+
 
         <div class="historic-grid">
 
-            <!-- Card 1: Tipu Sultan Summer Palace -->
-            <div class="historic-card" data-info='{
-                "title": "Bangalore Palace",
-                "description": "Completed in 1791 during the reign of Tipu Sultan, this summer residence is built almost entirely of teakwood with grand fluted pillars, cusped arches, and exquisite floral ceiling paintings. It stands as a glorious example of Indo-Islamic architecture.",
-                "images": [
+
+            <!-- =========================
+                 CARD 1
+            ========================== -->
+
+            <div class="historic-card" data-place="0">
+
+                <div class="card-img-wrapper">
+
+                    <img
+                        src="images/Bangalore_Palace_1.jpeg"
+                        alt="Bangalore Palace"
+                    >
+
+                </div>
+
+                <div class="historic-card-body">
+
+                    <h3>
+                        Bangalore Palace
+                    </h3>
+
+                    <p>
+                        Famous palace with grand architecture, royal interiors,
+                        ornate details, and expansive grounds.
+                    </p>
+
+                    <span class="card-action-link">
+                        View Details & Gallery →
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 CARD 2
+            ========================== -->
+
+            <div class="historic-card" data-place="1">
+
+                <div class="card-img-wrapper">
+
+                    <img
+                        src="images/Tippu_Sultans_Summer_palace.jpg"
+                        alt="Tippu Sultan's Summer Palace"
+                    >
+
+                </div>
+
+                <div class="historic-card-body">
+
+                    <h3>
+                        Tippu Sultan’s Summer Palace
+                    </h3>
+
+                    <p>
+                        Historic teakwood palace with fluted pillars,
+                        cusped arches, and detailed floral ceiling frescoes.
+                    </p>
+
+                    <span class="card-action-link">
+                        View Details & Gallery →
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 CARD 3
+            ========================== -->
+
+            <div class="historic-card" data-place="2">
+
+                <div class="card-img-wrapper">
+
+                    <img
+                        src="images/Old_Bangalore_Fort_Inside_View.JPG"
+                        alt="Bengaluru Fort"
+                    >
+
+                </div>
+
+                <div class="historic-card-body">
+
+                    <h3>
+                        Bengaluru Fort
+                    </h3>
+
+                    <p>
+                        Historic stone ramparts and gate dating back to
+                        Kempe Gowda, Hyder Ali, and Tipu Sultan.
+                    </p>
+
+                    <span class="card-action-link">
+                        View Details & Gallery →
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         MODAL
+    ========================== -->
+
+    <div
+        id="modal-overlay"
+        class="modal-overlay"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+        >
+
+            <!-- Close button -->
+
+            <button
+                class="modal-close-btn"
+                id="modal-close"
+                aria-label="Close modal"
+                type="button"
+            >
+                &times;
+            </button>
+
+
+            <!-- =========================
+                 GALLERY
+            ========================== -->
+
+            <div class="modal-gallery-container">
+
+                <div
+                    class="modal-main-image-box"
+                    style="position: relative;"
+                >
+
+                    <img
+                        id="modal-main-img"
+                        src=""
+                        alt="Landmark view"
+                    >
+
+                    <!-- Copyright -->
+
+                    <div
+                        id="modal-copyright"
+                        style="
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            background: rgba(0, 0, 0, 0.65);
+                            color: white;
+                            padding: 6px 10px;
+                            font-size: 0.8em;
+                            text-align: center;
+                            box-sizing: border-box;
+                            display: none;
+                            z-index: 2;
+                        "
+                    ></div>
+
+                </div>
+
+
+                <!-- Caption -->
+
+                <div
+                    id="modal-caption"
+                    style="
+                        text-align: center;
+                        font-size: 0.85em;
+                        margin-top: 8px;
+                        color: #444;
+                        font-weight: 500;
+                        min-height: 1.2em;
+                    "
+                ></div>
+
+
+                <!-- Thumbnail row -->
+
+                <div
+                    class="modal-thumbs-row"
+                    id="modal-thumbs"
+                ></div>
+
+            </div>
+
+
+            <!-- =========================
+                 MODAL INFORMATION
+            ========================== -->
+
+            <div class="modal-info-box">
+
+                <h2 id="modal-title"></h2>
+
+                <p
+                    class="modal-desc-text"
+                    id="modal-desc"
+                ></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Bengaluru Tourism | Karnataka, India
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+        ============================================================
+        LANDMARK DATA
+        ============================================================
+        Keep the data here instead of putting JSON inside HTML
+        attributes. This avoids JSON parsing errors.
+        ============================================================
+        */
+
+        const historicPlaces = [
+
+            {
+                title: "Bangalore Palace",
+
+                description:
+                    "Bangalore Palace is one of Bengaluru's most famous royal landmarks. Inspired by Windsor Castle, the palace is known for its Tudor-style architecture, fortified towers, elegant interiors, wooden carvings, paintings, and expansive grounds.",
+
+                images: [
                     "images/Bangalore_Palace_1.jpeg",
                     "images/Bangalore_Palace.jpeg",
                     "images/Bangalore_Palace_3.jpeg",
                     "images/Bangalore_Palace_2.jpeg"
                 ],
-                "imageCaptions": [
+
+                imageCaptions: [
                     "Front view of the majestic Bangalore Palace.",
-                    "Stunning interior details of the palace.",
-                    "Beautiful palace grounds and vibrant gardens.",
+                    "Interior details of Bangalore Palace.",
+                    "The beautiful palace grounds.",
                     "Detailed view of the palace architecture."
                 ],
-                "imageCopyrights": [
-                    "<a href=\"#\" style=\"color: #90caf9; text-decoration: none;\" target=\"_blank\">&copy; Image Source 1</a>",
-                    "<a href=\"#\" style=\"color: #90caf9; text-decoration: none;\" target=\"_blank\">&copy; Image Source 2</a>",
-                    "<a href=\"#\" style=\"color: #90caf9; text-decoration: none;\" target=\"_blank\">&copy; Image Source 3</a>",
-                    "<a href=\"#\" style=\"color: #90caf9; text-decoration: none;\" target=\"_blank\">&copy; Image Source 4</a>"
-                ]
-            }'>
-                <div class="card-img-wrapper">
-                    <img src="images/Bangalore_Palace_1.jpeg" alt="Bangalore Palace">
-                </div>
-                <div class="historic-card-body">
-                    <h3>Bangalore Palace</h3>
-                    <p>Famous palace with fluted pillars, cusped arches, and detailed floral ceiling frescoes.</p>
-                    <span class="card-action-link">View Details & Gallery →</span>
-                </div>
-            </div>
 
-            <!-- Card 2: Tipu Sultan Summer Palace -->
-            <div class="historic-card" data-info='{
-                "title": "Tippu Sultan’s Summer Palace",
-                "description": "Completed in 1791 during the reign of Tipu Sultan, this summer residence is built almost entirely of teakwood with grand fluted pillars, cusped arches, and exquisite floral ceiling paintings. It stands as a glorious example of Indo-Islamic architecture.",
-                "images": [
+                imageCopyrights: [
+
+                    `
+                    <span>
+                        &copy; 2018
+                        <a
+                            href="https://commons.wikimedia.org/w/index.php?curid=89852103"
+                            style="color:#90caf9; text-decoration:none;"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Chuggingtrails
+                        </a>
+                        |
+                        <a
+                            href="https://creativecommons.org/licenses/by-sa/4.0/"
+                            style="color:#90caf9; text-decoration:none;"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            CC BY-SA 4.0
+                        </a>
+                        |
+                        <a
+                            href="https://commons.wikimedia.org/w/index.php?curid=89852103"
+                            style="color:#90caf9; text-decoration:none;"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Image Source
+                        </a>
+                    </span>
+                    `,
+
+                    `
+                    <a
+                        href="https://commons.wikimedia.org/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        &copy; Image Source 2
+                    </a>
+                    `,
+
+                    `
+                    <a
+                        href="https://commons.wikimedia.org/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        &copy; Image Source 3
+                    </a>
+                    `,
+
+                    `
+                    <a
+                        href="https://commons.wikimedia.org/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        &copy; Image Source 4
+                    </a>
+                    `
+                ]
+            },
+
+
+            {
+                title: "Tippu Sultan’s Summer Palace",
+
+                description:
+                    "Completed in 1791 during the reign of Tipu Sultan, this summer residence is built predominantly from teakwood with grand fluted pillars, cusped arches, and decorative floral ceiling paintings. It is an important example of Indo-Islamic architecture in Bengaluru.",
+
+                images: [
                     "images/Tippu_Sultans_Summer_palace.jpg",
                     "images/Tipu_Sultans_palace_in_Bangalore._01.jpg",
                     "images/Tipu_Sultans_Palace_Bangalore.jpg",
                     "images/Tipu_Sultans_Summer_Palace_(15732183225).jpg",
                     "images/Tipu_Sultans_Summer_Palace_03.jpg"
+                ],
+
+                imageCaptions: [
+                    "Front view of Tippu Sultan’s Summer Palace.",
+                    "Architectural details of the palace.",
+                    "The historic palace structure.",
+                    "A view of the palace from the grounds.",
+                    "Decorative details of the summer palace."
+                ],
+
+                imageCopyrights: [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
                 ]
-            }'>
-                <div class="card-img-wrapper">
-                    <img src="images/Tippu_Sultans_Summer_palace.jpg" alt="Tippu Sultan Summer Palace">
+            },
 
-                </div>
-                <div class="historic-card-body">
-                    <h3>Tippu Sultan’s Summer Palace</h3>
-                    <p>Famous teakwood palace with fluted pillars, cusped arches, and detailed floral ceiling frescoes.</p>
-                    <span class="card-action-link">View Details & Gallery →</span>
-                </div>
-            </div>
 
-            <!-- Card 3: Bengaluru Fort -->
-            <div class="historic-card" data-info='{
-                "title": "Bengaluru Fort",
-                "description": "Originally constructed as a mud fort in 1537 by Kempe Gowda I, the founder of Bengaluru, it was later rebuilt in stone by Hyder Ali and Tipu Sultan. The preserved Delhi Gate features thick granite walls, ancient bastions, and carved stone pillars.",
-                "images": [
+            {
+                title: "Bengaluru Fort",
+
+                description:
+                    "Originally constructed as a mud fort in 1537 by Kempe Gowda I, the founder of Bengaluru, the fort was later rebuilt in stone by Hyder Ali and Tipu Sultan. The surviving Delhi Gate and surrounding structures preserve important elements of the city's early history.",
+
+                images: [
                     "images/Old_Bangalore_Fort_Inside_View.JPG",
                     "images/Old_Bangalore_Fort_Front_View.JPG"
+                ],
+
+                imageCaptions: [
+                    "Interior view of Bengaluru Fort.",
+                    "Historic front section of Bengaluru Fort."
+                ],
+
+                imageCopyrights: [
+                    "",
+                    ""
                 ]
-            }'>
-                <div class="card-img-wrapper">
-                    <img src="images/Old_Bangalore_Fort_Inside_View.JPG" alt="Bengaluru Fort">
+            }
 
-                </div>
-                <div class="historic-card-body">
-                    <h3>Bengaluru Fort</h3>
-                    <p>Historic stone ramparts and gate dating back to the city's founder Kempe Gowda and Hyder Ali.</p>
-                    <span class="card-action-link">View Details & Gallery →</span>
-                </div>
-            </div>
+        ];
 
-            <!-- Card 4: Lalbagh Heritage Glass House -->
-            <!-- <div class="historic-card" data-info='{
-                "title": "Lalbagh Heritage Glass House",
-                "description": "Commissioned in 1760 by Hyder Ali, Lalbagh is a historic botanical sanctuary. Its crown jewel is the Victorian Glass House built in 1889, modeled after London’s Crystal Palace, hosting world-famous flower exhibitions.",
-                "images": [
-                    "images/Lalbagh_lake_view.jpg",
-                    "images/Someshwara_temple.jpg",
-                    "images/Entrance_of_Iskcon_temple.jpg"
-                ]
-            }'>
-                <div class="card-img-wrapper">
-                    <img src="images/Lalbagh_lake_view.jpg" alt="Lalbagh Heritage Park">
 
-                </div>
-                <div class="historic-card-body">
-                    <h3>Lalbagh Heritage Park</h3>
-                    <p>Royal botanical garden with a Victorian Glass House modeled after London's Crystal Palace.</p>
-                    <span class="card-action-link">View Details & Gallery →</span>
-                </div>
-            </div> -->
+        /*
+        ============================================================
+        DOM ELEMENTS
+        ============================================================
+        */
 
-        </div>
-    </main>
+        const cards =
+            document.querySelectorAll(".historic-card");
 
-    <!-- MODAL OVERLAY -->
-    <div id="modal-overlay" class="modal-overlay">
-        <div class="modal-card">
-            <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+        const modalOverlay =
+            document.getElementById("modal-overlay");
 
-            <div class="modal-gallery-container">
-                <div class="modal-main-image-box" style="position: relative;">
-                    <img id="modal-main-img" src="" alt="Landmark view">
-                    <div id="modal-copyright" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.6); color: white; padding: 4px 8px; font-size: 0.85em; text-align: center; box-sizing: border-box; display: none;"></div>
-                </div>
-                <div id="modal-caption" style="text-align: center; font-size: 0.85em; margin-top: 0px; color: #444; font-weight: 500; min-height: 1.2em;"></div>
-                <div class="modal-thumbs-row" id="modal-thumbs"></div>
-            </div>
+        const modalCloseBtn =
+            document.getElementById("modal-close");
 
-            <div class="modal-info-box">
-                <h2 id="modal-title"></h2>
-                <p class="modal-desc-text" id="modal-desc"></p>
+        const modalTitle =
+            document.getElementById("modal-title");
 
-                </div>
-            </div>
-        </div>
-    </div>
+        const modalDesc =
+            document.getElementById("modal-desc");
 
-    <footer>
-        <p>© 2026 Bengaluru Tourism | Karnataka, India</p>
-    </footer>
+        const mainImage =
+            document.getElementById("modal-main-img");
 
-    <script>
-        const cards = document.querySelectorAll('.historic-card');
-        const modalOverlay = document.getElementById('modal-overlay');
-        const modalCloseBtn = document.getElementById('modal-close');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDesc = document.getElementById('modal-desc');
-        const mainImage = document.getElementById('modal-main-img');
-        const thumbsContainer = document.getElementById('modal-thumbs');
+        const thumbsContainer =
+            document.getElementById("modal-thumbs");
 
-        let activeTimeout = null;
+        const copyrightBox =
+            document.getElementById("modal-copyright");
+
+        const captionBox =
+            document.getElementById("modal-caption");
+
+
+        /*
+        ============================================================
+        CURRENT STATE
+        ============================================================
+        */
+
         let currentModalData = null;
+
         let currentImageIndex = 0;
 
-        function navigateImage(direction) {
-            if (!currentModalData || !currentModalData.images || currentModalData.images.length === 0) return;
-            
-            let newIndex = currentImageIndex + direction;
-            if (newIndex < 0) {
-                newIndex = currentModalData.images.length - 1;
-            } else if (newIndex >= currentModalData.images.length) {
-                newIndex = 0;
+
+        /*
+        ============================================================
+        UPDATE IMAGE INFORMATION
+        ============================================================
+        */
+
+        function updateImageDetails(index) {
+
+            currentImageIndex = index;
+
+
+            // Copyright
+
+            if (
+                currentModalData.imageCopyrights &&
+                currentModalData.imageCopyrights[index] &&
+                currentModalData.imageCopyrights[index].trim() !== ""
+            ) {
+
+                copyrightBox.innerHTML =
+                    currentModalData.imageCopyrights[index];
+
+                copyrightBox.style.display = "block";
+
+            } else {
+
+                copyrightBox.innerHTML = "";
+
+                copyrightBox.style.display = "none";
+
             }
-            
-            const thumbs = thumbsContainer.querySelectorAll('.modal-thumb');
-            if (thumbs[newIndex]) {
-                thumbs[newIndex].click();
+
+
+            // Caption
+
+            if (
+                currentModalData.imageCaptions &&
+                currentModalData.imageCaptions[index]
+            ) {
+
+                captionBox.textContent =
+                    currentModalData.imageCaptions[index];
+
+            } else {
+
+                captionBox.textContent = "";
+
             }
+
         }
 
-        function populateAndOpenModal(card) {
-            const data = JSON.parse(card.dataset.info);
-            currentModalData = data;
-            modalTitle.textContent = data.title;
-            modalDesc.textContent = data.description;
-            
-            const copyrightBox = document.getElementById('modal-copyright');
-            const captionBox = document.getElementById('modal-caption');
 
-            function updateImageDetails(index) {
-                currentImageIndex = index;
-                if (data.imageCopyrights && data.imageCopyrights[index]) {
-                    copyrightBox.innerHTML = data.imageCopyrights[index];
-                    copyrightBox.style.display = 'block';
-                } else {
-                    copyrightBox.style.display = 'none';
-                }
+        /*
+        ============================================================
+        CHANGE IMAGE
+        ============================================================
+        */
 
-                if (data.imageCaptions && data.imageCaptions[index]) {
-                    captionBox.textContent = data.imageCaptions[index];
-                } else {
-                    captionBox.textContent = '';
-                }
+        function showImage(index) {
+
+            if (
+                !currentModalData ||
+                !currentModalData.images ||
+                currentModalData.images.length === 0
+            ) {
+                return;
             }
 
-            // Set main image and thumbnails
-            mainImage.src = data.images[0];
-            updateImageDetails(0);
-            thumbsContainer.innerHTML = '';
-            
-            data.images.forEach((imgUrl, index) => {
-                const thumb = document.createElement('div');
-                thumb.className = `modal-thumb ${index === 0 ? 'active' : ''}`;
-                thumb.innerHTML = `<img src="${imgUrl}" alt="${data.title}">`;
-                thumb.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    mainImage.src = imgUrl;
-                    updateImageDetails(index);
-                    document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
-                    thumb.classList.add('active');
-                });
-                thumbsContainer.appendChild(thumb);
+
+            if (index < 0) {
+
+                index =
+                    currentModalData.images.length - 1;
+
+            }
+
+
+            if (
+                index >=
+                currentModalData.images.length
+            ) {
+
+                index = 0;
+
+            }
+
+
+            currentImageIndex = index;
+
+
+            mainImage.src =
+                currentModalData.images[index];
+
+            mainImage.alt =
+                `${currentModalData.title} - Image ${index + 1}`;
+
+
+            updateImageDetails(index);
+
+
+            /*
+            --------------------------------------------------------
+            Update active thumbnail
+            --------------------------------------------------------
+            */
+
+            const thumbs =
+                thumbsContainer.querySelectorAll(
+                    ".modal-thumb"
+                );
+
+
+            thumbs.forEach((thumb, i) => {
+
+                thumb.classList.toggle(
+                    "active",
+                    i === index
+                );
+
             });
 
-            modalOverlay.classList.add('active');
         }
+
+
+        /*
+        ============================================================
+        NEXT / PREVIOUS IMAGE
+        ============================================================
+        */
+
+        function navigateImage(direction) {
+
+            if (!currentModalData) {
+                return;
+            }
+
+
+            const totalImages =
+                currentModalData.images.length;
+
+
+            if (totalImages === 0) {
+                return;
+            }
+
+
+            let newIndex =
+                currentImageIndex + direction;
+
+
+            if (newIndex < 0) {
+
+                newIndex =
+                    totalImages - 1;
+
+            }
+
+
+            if (newIndex >= totalImages) {
+
+                newIndex = 0;
+
+            }
+
+
+            showImage(newIndex);
+
+        }
+
+
+        /*
+        ============================================================
+        OPEN MODAL
+        ============================================================
+        */
+
+        function populateAndOpenModal(placeIndex) {
+
+            const data =
+                historicPlaces[placeIndex];
+
+
+            if (!data) {
+
+                console.error(
+                    "Historic place not found:",
+                    placeIndex
+                );
+
+                return;
+
+            }
+
+
+            currentModalData = data;
+
+
+            /*
+            --------------------------------------------------------
+            Text information
+            --------------------------------------------------------
+            */
+
+            modalTitle.textContent =
+                data.title;
+
+            modalDesc.textContent =
+                data.description;
+
+
+            /*
+            --------------------------------------------------------
+            Clear old thumbnails
+            --------------------------------------------------------
+            */
+
+            thumbsContainer.innerHTML = "";
+
+
+            /*
+            --------------------------------------------------------
+            Create thumbnails
+            --------------------------------------------------------
+            */
+
+            data.images.forEach(
+                (imgUrl, index) => {
+
+                    const thumb =
+                        document.createElement("div");
+
+                    thumb.className =
+                        "modal-thumb";
+
+
+                    if (index === 0) {
+
+                        thumb.classList.add("active");
+
+                    }
+
+
+                    const img =
+                        document.createElement("img");
+
+                    img.src =
+                        imgUrl;
+
+                    img.alt =
+                        `${data.title} thumbnail ${index + 1}`;
+
+
+                    /*
+                    ------------------------------------------------
+                    Prevent broken thumbnail from breaking modal
+                    ------------------------------------------------
+                    */
+
+                    img.onerror = function () {
+
+                        this.style.opacity = "0.4";
+
+                    };
+
+
+                    thumb.appendChild(img);
+
+
+                    thumb.addEventListener(
+                        "click",
+                        function (event) {
+
+                            event.stopPropagation();
+
+                            showImage(index);
+
+                        }
+                    );
+
+
+                    thumbsContainer.appendChild(
+                        thumb
+                    );
+
+                }
+            );
+
+
+            /*
+            --------------------------------------------------------
+            Show first image
+            --------------------------------------------------------
+            */
+
+            showImage(0);
+
+
+            /*
+            --------------------------------------------------------
+            Open modal
+            --------------------------------------------------------
+            */
+
+            modalOverlay.classList.add("active");
+
+            modalOverlay.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+            /*
+            --------------------------------------------------------
+            Prevent background page scrolling
+            --------------------------------------------------------
+            */
+
+            document.body.style.overflow =
+                "hidden";
+
+        }
+
+
+        /*
+        ============================================================
+        CLOSE MODAL
+        ============================================================
+        */
 
         function closeModal() {
-            modalOverlay.classList.remove('active');
+
+            modalOverlay.classList.remove(
+                "active"
+            );
+
+            modalOverlay.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+
+            document.body.style.overflow =
+                "";
+
+
+            /*
+            --------------------------------------------------------
+            Clear image after closing
+            --------------------------------------------------------
+            */
+
+            setTimeout(
+                function () {
+
+                    if (
+                        !modalOverlay.classList.contains(
+                            "active"
+                        )
+                    ) {
+
+                        mainImage.src = "";
+
+                        thumbsContainer.innerHTML = "";
+
+                    }
+
+                },
+                250
+            );
+
         }
 
-        cards.forEach(card => {
-            // Click opens modal
-            card.addEventListener('click', () => {
-                populateAndOpenModal(card);
-            });
-        });
 
-        // Click outside modal card (on backdrop) closes modal
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
+        /*
+        ============================================================
+        CARD CLICK EVENTS
+        ============================================================
+        */
+
+        cards.forEach(
+            function (card) {
+
+                card.addEventListener(
+                    "click",
+                    function () {
+
+                        const placeIndex =
+                            parseInt(
+                                card.dataset.place,
+                                10
+                            );
+
+
+                        if (
+                            Number.isNaN(
+                                placeIndex
+                            )
+                        ) {
+
+                            console.error(
+                                "Invalid place index:",
+                                card.dataset.place
+                            );
+
+                            return;
+
+                        }
+
+
+                        populateAndOpenModal(
+                            placeIndex
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /*
+        ============================================================
+        CLOSE WHEN CLICKING BACKDROP
+        ============================================================
+        */
+
+        modalOverlay.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target ===
+                    modalOverlay
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /*
+        ============================================================
+        CLOSE BUTTON
+        ============================================================
+        */
+
+        modalCloseBtn.addEventListener(
+            "click",
+            function () {
+
                 closeModal();
-            }
-        });
 
-        modalCloseBtn.addEventListener('click', closeModal);
-
-        document.addEventListener('keydown', (e) => {
-            if (modalOverlay.classList.contains('active')) {
-                if (e.key === 'Escape') closeModal();
-                else if (e.key === 'ArrowLeft') navigateImage(-1);
-                else if (e.key === 'ArrowRight') navigateImage(1);
             }
-        });
+        );
+
+
+        /*
+        ============================================================
+        KEYBOARD CONTROLS
+        ============================================================
+        */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    !modalOverlay.classList.contains(
+                        "active"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                /*
+                Escape
+                */
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeModal();
+
+                    return;
+
+                }
+
+
+                /*
+                Previous image
+                */
+
+                if (
+                    event.key === "ArrowLeft"
+                ) {
+
+                    navigateImage(-1);
+
+                    return;
+
+                }
+
+
+                /*
+                Next image
+                */
+
+                if (
+                    event.key === "ArrowRight"
+                ) {
+
+                    navigateImage(1);
+
+                    return;
+
+                }
+
+            }
+        );
+
+
+        /*
+        ============================================================
+        IMAGE ERROR HANDLING
+        ============================================================
+        */
+
+        mainImage.addEventListener(
+            "error",
+            function () {
+
+                console.error(
+                    "Could not load image:",
+                    mainImage.src
+                );
+
+            }
+        );
+
     </script>
 
 </body>
