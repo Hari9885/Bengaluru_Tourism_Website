@@ -8,7 +8,33 @@
     <title>Wildlife & Nature | Bengaluru Tourism</title>
 
     <link rel="stylesheet" href="styles.css">
-</head>
+
+        /* Wildlife cards: preserve each image's original aspect ratio */
+        .wildlife-modal #modal-main-img {
+            width: auto !important;
+            height: auto !important;
+            max-width: 100% !important;
+            max-height: 70vh !important;
+            object-fit: contain !important;
+            aspect-ratio: auto !important;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .wildlife-modal .modal-main-image-box {
+            width: fit-content !important;
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: 70vh !important;
+            margin: 0 auto !important;
+            overflow: hidden;
+        }
+
+        .wildlife-modal .modal-thumb img {
+            object-fit: contain !important;
+        }
+
+    </head>
 
 <body>
 
@@ -1200,7 +1226,8 @@
 
 
             modalOverlay.classList.add(
-                "active"
+                "active",
+                "wildlife-modal"
             );
 
 
@@ -1225,7 +1252,8 @@
         function closeModal() {
 
             modalOverlay.classList.remove(
-                "active"
+                "active",
+                "wildlife-modal"
             );
 
 
