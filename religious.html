@@ -30,6 +30,44 @@
             z-index: 2;
         }
 
+        /* =====================================================
+           ST. MARY'S BASILICA ONLY
+           Keep its images in their original aspect ratio.
+           Other cards are unchanged.
+        ====================================================== */
+
+        .st-marys-modal #modal-main-img,
+        .iskcon-modal #modal-main-img,
+        .someshwara-modal #modal-main-img {
+            width: auto !important;
+            height: auto !important;
+            max-width: 100% !important;
+            max-height: 70vh !important;
+            object-fit: contain !important;
+            aspect-ratio: auto !important;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Make the hero container follow the original image ratio */
+        .st-marys-modal .modal-main-image-box,
+        .iskcon-modal .modal-main-image-box,
+        .someshwara-modal .modal-main-image-box {
+            width: fit-content !important;
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: 70vh !important;
+            margin: 0 auto !important;
+            overflow: hidden;
+        }
+
+        /* Keep St. Mary's and ISKCON thumbnails proportional */
+        .st-marys-modal .modal-thumb img,
+        .iskcon-modal .modal-thumb img,
+        .someshwara-modal .modal-thumb img {
+            object-fit: contain !important;
+        }
+
         /* Image caption */
         #modal-caption {
             text-align: center;
@@ -140,7 +178,6 @@
                     "images/Entrance_of_Iskcon_temple.jpg",
                     "images/Iskcon_1.jpg",
                     "images/Iskcon_4.jpeg",
-                    "images/Iskcon_3.jpeg",
                     "images/Iskcon_2.jpeg"
                 ]
             }'>
@@ -222,13 +259,13 @@
                 "title": "St. Mary&#39;s Basilica",
                 "description": "St. Mary&#39;s Basilica is one of the oldest churches in Bengaluru. Elevated to the status of a minor basilica by Pope John Paul II in 1973, it is known for its Gothic-style architecture, stained-glass windows, and the annual St. Mary&#39;s Feast in September — one of the largest religious gatherings in Bengaluru drawing over a million devotees.",
                 "images": [
-                    "images/St._Marys_Basilica_2.jpg",
-                    "images/St_marys_Bascilica_1.jpg",
-                    "images/St.Marys_Basilica_3.jpeg"
+                    "images/St._Marys_Basilica_in_Bangalore.jpg",
+                    "images/St_Marys_Basilica_Bangalore.jpg",
+                    "images/St._Marys_Basilica,_Bangalore_at_Night.jpg"
                 ]
             }'>
                 <div class="card-img-wrapper">
-                    <img src="images/St._Marys_Basilica_2.jpg" alt="St. Mary's Basilica">
+                    <img src="images/St._Marys_Basilica_in_Bangalore.jpg" alt="St. Mary's Basilica">
                 </div>
 
                 <div class="historic-card-body">
@@ -997,6 +1034,21 @@
                 "active"
             );
 
+            /* Apply original image-ratio styling only to St. Mary's and ISKCON */
+            modalOverlay.classList.remove(
+                "st-marys-modal",
+                "iskcon-modal",
+                "someshwara-modal"
+            );
+
+            if (data.title === "St. Mary's Basilica") {
+                modalOverlay.classList.add("st-marys-modal");
+            } else if (data.title === "ISKCON Temple Bengaluru") {
+                modalOverlay.classList.add("iskcon-modal");
+            } else if (data.title === "Someshwara Temple") {
+                modalOverlay.classList.add("someshwara-modal");
+            }
+
 
             modalOverlay.setAttribute(
                 "aria-hidden",
@@ -1020,6 +1072,12 @@
 
             modalOverlay.classList.remove(
                 "active"
+            );
+
+            modalOverlay.classList.remove(
+                "st-marys-modal",
+                "iskcon-modal",
+                "someshwara-modal"
             );
 
 
