@@ -8,81 +8,6 @@
     <title>Historic Bengaluru | Bengaluru Tourism</title>
 
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-
-        /* =====================================================
-           MODAL ACTION CARDS
-        ====================================================== */
-
-        .modal-action-cards {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 22px;
-        }
-
-        .modal-action-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 16px;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            background: #fafafa;
-            color: inherit;
-            text-decoration: none;
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease,
-                border-color 0.2s ease;
-        }
-
-        .modal-action-card:hover {
-            transform: translateY(-2px);
-            border-color: #90caf9;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
-        }
-
-        .modal-action-card:focus-visible {
-            outline: 3px solid rgba(144, 202, 249, 0.55);
-            outline-offset: 2px;
-        }
-
-        .modal-action-content {
-            min-width: 0;
-        }
-
-        .modal-action-content h3 {
-            margin: 0 0 5px;
-            font-size: 1rem;
-        }
-
-        .modal-action-content p {
-            margin: 0 0 7px;
-            font-size: 0.84rem;
-            line-height: 1.4;
-            color: #666;
-        }
-
-        .modal-action-content span {
-            color: #5b9bd5;
-            font-size: 0.84rem;
-            font-weight: 600;
-        }
-
-        @media (max-width: 600px) {
-            .modal-action-cards {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        #modal-copyright a {
-            color: #90caf9 !important;
-            text-decoration: none !important;
-        }
-    </style>
 </head>
 
 <body>
@@ -248,7 +173,7 @@
                  CARD 3
             ========================== -->
 
-            <div class="historic-card" data-place="2">
+            <div class="historic-card" data-place="3">
 
                 <div class="card-img-wrapper">
 
@@ -272,6 +197,41 @@
 
                     <span class="card-action-link">
                         View Details & Gallery →
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 CARD 4
+            ========================== -->
+
+            <div class="historic-card" data-place="2">
+
+                <div class="card-img-wrapper">
+
+                    <img
+                        src="images/Devanahalli_Fort_1.jpg"
+                        alt="Devanahalli Fort and Tipu's Birthplace"
+                    >
+
+                </div>
+
+                <div class="historic-card-body">
+
+                    <h3>
+                        Devanahalli Fort and Tipu's Birthplace
+                    </h3>
+
+                    <p>
+                        Historic fort associated with Bengaluru's early history,
+                        along with the birthplace of Tipu Sultan.
+                    </p>
+
+                    <span class="card-action-link">
+                        View Details &amp; Gallery →
                     </span>
 
                 </div>
@@ -391,50 +351,6 @@
                     id="modal-desc"
                 ></p>
 
-                <!-- =========================
-                     LOCATION / METRO CARDS
-                ========================== -->
-
-                <div class="modal-action-cards">
-
-                    <!-- Location on Google Maps -->
-                    <a
-                        id="location-map-card"
-                        class="modal-action-card"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <div class="modal-action-content">
-                            <h3>Location on Maps</h3>
-                            <p>
-                                View this landmark on Google Maps
-                                and get directions.
-                            </p>
-                            <span>Open Google Maps →</span>
-                        </div>
-                    </a>
-
-                    <!-- Metro connection -->
-                    <a
-                        id="metro-route-card"
-                        class="modal-action-card"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <div class="modal-action-content">
-                            <h3>Other Public Transport</h3>
-                            <p>
-                                See the available public-transport
-                                options to this landmark on Google Maps.
-                            </p>
-                            <span>View Public Transport Route →</span>
-                        </div>
-                    </a>
-
-                </div>
-
             </div>
 
         </div>
@@ -465,9 +381,6 @@
         ============================================================
         LANDMARK DATA
         ============================================================
-        Keep the data here instead of putting JSON inside HTML
-        attributes. This avoids JSON parsing errors.
-        ============================================================
         */
 
         const historicPlaces = [
@@ -482,7 +395,7 @@
                     "images/Bangalore_Palace_1.jpeg",
                     "images/Bangalore_Palace.jpeg",
                     "images/Bangalore_Palace_3.jpeg",
-                    "images/Bangalore_Palace_5.jpg"
+                    "images/Bangalore_Palace_2.jpeg"
                 ],
 
                 imageCaptions: [
@@ -495,53 +408,68 @@
                 imageCopyrights: [
 
                     `
-                    By <a
-                        href="//commons.wikimedia.org/w/index.php?title=User:Chuggingtrails&amp;action=edit&amp;redlink=1"
-                        class="new"
-                        title="User:Chuggingtrails (page does not exist)"
-                        style="color:#90caf9; text-decoration:none;"
-                    >Chuggingtrails</a> -
-                    <span class="int-own-work" lang="en">Own work</span> |
+                    <span>
+                        &copy; 2018
+                        <a
+                            href="https://commons.wikimedia.org/wiki/User:Chuggingtrails"
+                            style="color:#90caf9; text-decoration:none;"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Chuggingtrails
+                        </a>
+                        |
+                        <a
+                            href="https://creativecommons.org/licenses/by-sa/4.0/"
+                            style="color:#90caf9; text-decoration:none;"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            CC BY-SA 4.0
+                        </a>
+                        |
+                        <a
+                            href="https://commons.wikimedia.org/w/index.php?curid=89852103"
+                            style="color:#90caf9; text-decoration:none;"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Image Source
+                        </a>
+                    </span>
+                    `,
+
+                    `
                     <a
-                        href="https://creativecommons.org/licenses/by-sa/4.0"
-                        title="Creative Commons Attribution-Share Alike 4.0"
+                        href="https://commons.wikimedia.org/"
                         style="color:#90caf9; text-decoration:none;"
-                    >CC BY-SA 4.0</a> |
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        &copy; Image Source 2
+                    </a>
+                    `,
+
+                    `
                     <a
-                        href="https://commons.wikimedia.org/w/index.php?curid=89852103"
+                        href="https://commons.wikimedia.org/"
                         style="color:#90caf9; text-decoration:none;"
-                    >Image Source</a>
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        &copy; Image Source 3
+                    </a>
                     `,
 
                     `
-                    By <a href="//commons.wikimedia.org/wiki/User:Basavaraj_M"
-                    title="User:Basavaraj M" style="color:#90caf9; text-decoration:none;">Basavaraj M</a> -
-                    <span class="int-own-work" lang="en">Own work</span> |
-                    <a href="https://creativecommons.org/licenses/by-sa/4.0"
-                    title="Creative Commons Attribution-Share Alike 4.0" style="color:#90caf9; text-decoration:none;">CC BY-SA 4.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=153178458" style="color:#90caf9; text-decoration:none;">Image Source</a>
-                    `,
-
-                    `
-                    By <a rel="nofollow" class="external text"
-                    href="https://www.flickr.com/people/82448203@N04" style="color:#90caf9; text-decoration:none;">John Hoey</a>
-                    from Framingham, MA, United States -
-                    <a rel="nofollow" class="external text"
-                    href="https://www.flickr.com/photos/drjohn01702/15862432655/" style="color:#90caf9; text-decoration:none;">Main Room at the Bangalore Palace</a> |
-                    <a href="https://creativecommons.org/licenses/by/2.0"
-                    title="Creative Commons Attribution 2.0">CC BY 2.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=47412314" style="color:#90caf9; text-decoration:none;">Image Source</a>
-                    `,
-
-                    `
-                    By <a rel="nofollow" class="external text"
-                    href="https://www.flickr.com/people/82448203@N04" style="color:#90caf9; text-decoration:none;">John Hoey</a>
-                    from Framingham, MA, United States -
-                    <a rel="nofollow" class="external text"
-                    href="https://www.flickr.com/photos/drjohn01702/15749130257/" style="color:#90caf9; text-decoration:none;">Top Floor (Bangalore Palace)</a> |
-                    <a href="https://creativecommons.org/licenses/by/2.0"
-                    title="Creative Commons Attribution 2.0">CC BY 2.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=47412102" style="color:#90caf9; text-decoration:none;">Image Source</a>
+                    <a
+                        href="https://commons.wikimedia.org/"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        &copy; Image Source 4
+                    </a>
                     `
                 ]
             },
@@ -570,52 +498,124 @@
                 ],
 
                 imageCopyrights: [
-                    `
-                    By <a href="//commons.wikimedia.org/w/index.php?title=User:Shrishailctalukar&amp;action=edit&amp;redlink=1" style="color:#90caf9; text-decoration:none;"
-                    class="new" title="User:Shrishailctalukar (page does not exist)">Shrishailctalukar</a> -
-                    <span class="int-own-work" lang="en">Own work</span> |
-                    <a href="https://creativecommons.org/licenses/by-sa/4.0"
-                    title="Creative Commons Attribution-Share Alike 4.0" style="color:#90caf9; text-decoration:none;">CC BY-SA 4.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=49821860" style="color:#90caf9; text-decoration:none;">Image Source</a>
-                    `,
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
 
-                    `
-                    By <a href="//commons.wikimedia.org/wiki/User:Pinakpani" style="color:#90caf9; text-decoration:none;"
-                    title="User:Pinakpani">Pinakpani</a> -
-                    <span class="int-own-work" lang="en">Own work</span> |
-                    <a href="https://creativecommons.org/licenses/by-sa/4.0"
-                    title="Creative Commons Attribution-Share Alike 4.0" style="color:#90caf9; text-decoration:none;">CC BY-SA 4.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=67678963" style="color:#90caf9; text-decoration:none;">Image Source</a>
-                    `,
 
-                    `
-                    By <a href="//commons.wikimedia.org/wiki/User:Pavithrah" style="color:#90caf9; text-decoration:none;"
-                    title="User:Pavithrah">Pavithrah</a> -
-                    <span class="int-own-work" lang="en">Own work</span> |
-                    <a href="https://creativecommons.org/licenses/by-sa/3.0" style="color:#90caf9; text-decoration:none;"
-                    title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=20992189" style="color:#90caf9; text-decoration:none;">Image Source</a>
-                    `,
+            {
+                title: "Devanahalli Fort and Tipu's Birthplace",
 
-                    `
-                    By <a rel="nofollow" class="external text"
-                    href="https://www.flickr.com/people/82448203@N04" style="color:#90caf9; text-decoration:none;">John Hoey</a>
-                    from Framingham, MA, United States -
-                    <a rel="nofollow" class="external text"
-                    href="https://www.flickr.com/photos/drjohn01702/15732183225/" style="color:#90caf9; text-decoration:none;">Tipu Sultan's Summer Palace</a> |
-                    <a href="https://creativecommons.org/licenses/by/2.0"
-                    title="Creative Commons Attribution 2.0">CC BY 2.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=47412100" style="color:#90caf9; text-decoration:none;">Image Source</a>
-                    `,
+                description:
+                    "Devanahalli Fort is a historic fort located near Bengaluru, originally built in the early sixteenth century and later reconstructed in stone. The fort is especially significant because Tipu Sultan was born in Devanahalli in 1750, making the site an important part of the region's military and royal history.",
 
-                    `
-                    By <a href="//commons.wikimedia.org/w/index.php?title=User:Sanimator2014&amp;action=edit&amp;redlink=1" style="color:#90caf9; text-decoration:none;"
-                    class="new" title="User:Sanimator2014 (page does not exist)">Sanimator2014</a> -
-                    <span class="int-own-work" lang="en">Own work</span> |
-                    <a href="https://creativecommons.org/licenses/by-sa/4.0"
-                    title="Creative Commons Attribution-Share Alike 4.0" style="color:#90caf9; text-decoration:none;">CC BY-SA 4.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=49240814" style="color:#90caf9; text-decoration:none;">Image Source</a>
-                    `
+                images: [
+                    "images/Devanahalli_Fort_1.jpg",
+                    "images/Devanahalli_Fort_2.jpg",
+                    "images/Devanahalli_Fort_3.jpg",
+                    "images/Devanahalli_Fort_4.jpg"
+                ],
+
+                imageCaptions: [
+                    "A view of Devanahalli Fort.",
+                    "Another view of the historic Devanahalli Fort.",
+                    "Entrance and outer section of Devanahalli Fort.",
+                    "Tipu Sultan's birthplace at Devanahalli."
+                ],
+
+                imageCopyrights: [
+
+                    `By <a
+                        href="https://commons.wikimedia.org/wiki/User:Harvinder_Chandigarh"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Harvinder Chandigarh</a>
+                    - <span class="int-own-work" lang="en">Own work</span>
+                    |
+                    <a
+                        href="https://creativecommons.org/licenses/by/4.0"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >CC BY 4.0</a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=149158774"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Image Source</a>`,
+
+                    `By <a
+                        href="https://commons.wikimedia.org/wiki/User:Harvinder_Chandigarh"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Harvinder Chandigarh</a>
+                    - <span class="int-own-work" lang="en">Own work</span>
+                    |
+                    <a
+                        href="https://creativecommons.org/licenses/by/4.0"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >CC BY 4.0</a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=149159064"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Image Source</a>`,
+
+                    `By <a
+                        href="https://commons.wikimedia.org/wiki/User:Harvinder_Chandigarh"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Harvinder Chandigarh</a>
+                    - <span class="int-own-work" lang="en">Own work</span>
+                    |
+                    <a
+                        href="https://creativecommons.org/licenses/by/4.0"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >CC BY 4.0</a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=149159063"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Image Source</a>`,
+
+                    `By <a
+                        href="https://commons.wikimedia.org/wiki/User:Tinucherian"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Tinucherian</a>
+                    - <span class="int-own-work" lang="en">Own work</span>
+                    |
+                    <a
+                        href="https://creativecommons.org/licenses/by-sa/3.0"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >CC BY-SA 3.0</a>
+                    |
+                    <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=5745399"
+                        style="color:#90caf9; text-decoration:none;"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Image Source</a>`
                 ]
             },
 
@@ -637,23 +637,8 @@
                 ],
 
                 imageCopyrights: [
-                    `
-                    By <a href="//commons.wikimedia.org/wiki/User:Pavithrah" style="color:#90caf9; text-decoration:none;"
-                    title="User:Pavithrah">Pavithrah</a> -
-                    <span class="int-own-work" lang="en">Own work</span> |
-                    <a href="https://creativecommons.org/licenses/by-sa/3.0" style="color:#90caf9; text-decoration:none;"
-                    title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=20992215" style="color:#90caf9; text-decoration:none;">Image Source</a>
-                    `,
-
-                    `
-                    By <a href="//commons.wikimedia.org/wiki/User:Pavithrah" style="color:#90caf9; text-decoration:none;"
-                    title="User:Pavithrah">Pavithrah</a> -
-                    <span class="int-own-work" lang="en">Own work</span> |
-                    <a href="https://creativecommons.org/licenses/by-sa/3.0" style="color:#90caf9; text-decoration:none;"
-                    title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a> |
-                    <a href="https://commons.wikimedia.org/w/index.php?curid=20992216" style="color:#90caf9; text-decoration:none;">Image Source</a>
-                    `
+                    "",
+                    ""
                 ]
             }
 
@@ -692,12 +677,6 @@
 
         const captionBox =
             document.getElementById("modal-caption");
-
-        const locationMapCard =
-            document.getElementById("location-map-card");
-
-        const metroRouteCard =
-            document.getElementById("metro-route-card");
 
 
         /*
@@ -883,43 +862,6 @@
 
         /*
         ============================================================
-        GOOGLE MAPS URLS
-        ============================================================
-        Google Maps generates the live route when these links open.
-        The metro card uses travelmode=transit, so Google Maps
-        chooses the current available public-transport/metro route.
-        ============================================================
-        */
-
-        function updateGoogleMapsCards(data) {
-
-            const destination =
-                encodeURIComponent(data.title + ", Bengaluru, Karnataka, India");
-
-            /*
-             * Location card:
-             * Opens the landmark directly in Google Maps.
-             */
-            locationMapCard.href =
-                "https://www.google.com/maps/search/?api=1&query=" +
-                destination;
-
-            /*
-             * Metro card:
-             * No fixed origin is supplied, so Google Maps can use
-             * the user's current location when available.
-             * travelmode=transit makes Google Maps show the live
-             * public-transport route, including metro connections.
-             */
-            metroRouteCard.href =
-                "https://www.google.com/maps/dir/?api=1" +
-                "&destination=" + destination +
-                "&travelmode=transit";
-        }
-
-
-        /*
-        ============================================================
         OPEN MODAL
         ============================================================
         */
@@ -956,8 +898,6 @@
 
             modalDesc.textContent =
                 data.description;
-
-            updateGoogleMapsCards(data);
 
 
             /*
