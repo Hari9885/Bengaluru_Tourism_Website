@@ -9,11 +9,10 @@ body {
     background: #f5f7f2;
     color: #222;
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
-/* =========================
-   NAVBAR
-========================= */
 
 .navbar {
     position: sticky;
@@ -54,6 +53,7 @@ body {
     background: #d9a441;
     color: #12372a;
 }
+
 
 /* =========================
    HERO / CAROUSEL
@@ -108,7 +108,6 @@ body {
     display: block;
 }
 
-/* Dark overlay over each image */
 .slide-overlay {
     position: absolute;
     inset: 0;
@@ -121,7 +120,6 @@ body {
     pointer-events: none;
 }
 
-/* Main hero text */
 .slide-caption {
     position: absolute;
     left: 7%;
@@ -145,6 +143,7 @@ body {
     color: rgba(255, 255, 255, 0.92);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
+
 
 /* =========================
    PLACE TITLE
@@ -170,7 +169,6 @@ body {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
 }
 
-/* Elegant gold accent line */
 .place-title span::before {
     content: "";
     display: inline-block;
@@ -182,11 +180,13 @@ body {
     border-radius: 10px;
 }
 
+
 /* =========================
    CAROUSEL ANIMATION
 ========================= */
 
 @keyframes carousel {
+
     0% {
         opacity: 0;
     }
@@ -208,6 +208,7 @@ body {
     }
 }
 
+
 /* =========================
    CONTENT SECTION
 ========================= */
@@ -216,6 +217,7 @@ body {
     width: 90%;
     margin: 0 5% 50px 5%;
     padding-top: 18px;
+    flex: 1;
 }
 
 .section h2 {
@@ -230,6 +232,7 @@ body {
     margin-bottom: 30px;
     max-width: 800px;
 }
+
 
 /* =========================
    CATEGORY CARDS
@@ -274,6 +277,7 @@ body {
     text-decoration: none;
 }
 
+
 /* =========================
    OTHER PAGE COMPONENTS
 ========================= */
@@ -306,17 +310,19 @@ body {
     border-radius: 10px;
 }
 
+
 /* =========================
    FOOTER
 ========================= */
 
 footer {
-    margin-top: 60px;
+    margin-top: 0;
     background: #12372a;
     color: white;
     text-align: center;
     padding: 25px;
 }
+
 
 /* =========================
    RESPONSIVE DESIGN
@@ -332,8 +338,6 @@ footer {
     .nav-links {
         justify-content: center;
     }
-
-
 
     .slide-caption {
         left: 6%;
@@ -379,8 +383,6 @@ footer {
         font-size: 14px;
     }
 
-
-
     .slide-caption {
         top: 43%;
     }
@@ -402,6 +404,7 @@ footer {
     }
 }
 
+
 /* =========================
    HISTORIC PAGE CARDS & MODAL
 ========================= */
@@ -419,7 +422,10 @@ footer {
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
     border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -493,8 +499,9 @@ footer {
     margin-top: auto;
 }
 
+
 /* =========================
-   MODAL OVERLAY (GREYED OUT BACKGROUND)
+   MODAL OVERLAY
 ========================= */
 
 .modal-overlay {
@@ -509,7 +516,9 @@ footer {
     padding: 20px;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 }
 
 .modal-overlay.active {
@@ -526,7 +535,8 @@ footer {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     position: relative;
     transform: scale(0.92);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition:
+        transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     padding: 28px;
     display: flex;
     flex-direction: column;
@@ -552,7 +562,9 @@ footer {
     align-items: center;
     justify-content: center;
     color: #333;
-    transition: background 0.2s, color 0.2s;
+    transition:
+        background 0.2s,
+        color 0.2s;
     z-index: 10;
 }
 
@@ -561,7 +573,9 @@ footer {
     color: white;
 }
 
-/* Gallery inside modal: 3+ images */
+
+/* Gallery */
+
 .modal-gallery-container {
     display: flex;
     flex-direction: column;
@@ -583,6 +597,10 @@ footer {
     transition: opacity 0.3s ease;
 }
 
+
+/* THIS IS THE IMPORTANT PART:
+   thumbnails are horizontal */
+
 .modal-thumbs-row {
     display: flex;
     gap: 12px;
@@ -599,7 +617,10 @@ footer {
     cursor: pointer;
     border: 3px solid transparent;
     opacity: 0.7;
-    transition: border-color 0.2s, opacity 0.2s, transform 0.2s;
+    transition:
+        border-color 0.2s,
+        opacity 0.2s,
+        transform 0.2s;
 }
 
 .modal-thumb.active,
@@ -615,7 +636,9 @@ footer {
     object-fit: cover;
 }
 
-/* Modal text content */
+
+/* Modal text */
+
 .modal-info-box h2 {
     color: #12372a;
     font-size: 26px;

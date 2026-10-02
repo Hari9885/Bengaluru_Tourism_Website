@@ -4,17 +4,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Historic Bengaluru | Bengaluru Tourism</title>
 
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .card-img-wrapper {
+            width: 100%;
+            height: auto !important;
+            overflow: hidden;
+        }
+
+        .card-img-wrapper img {
+            width: auto !important;
+            height: auto !important;
+            max-width: 100% !important;
+            object-fit: contain !important;
+            aspect-ratio: auto !important;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ================================
+           MODAL ACTION CARDS
+        ================================= */
+
+        .modal-action-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .modal-action-card {
+            min-width: 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fafafa;
+            color: inherit;
+            text-decoration: none;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .modal-action-card:hover {
+            transform: translateY(-2px);
+            border-color: #90caf9;
+            box-shadow:
+                0 4px 14px rgba(0, 0, 0, 0.10);
+        }
+
+        .modal-action-card:focus-visible {
+            outline:
+                3px solid rgba(144, 202, 249, 0.55);
+            outline-offset: 2px;
+        }
+
+        /* ================================
+           GOOGLE MAP PREVIEW
+        ================================= */
+
+        .map-preview {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: #e8e5df;
+        }
+
+        .map-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+
+            /* Prevent iframe from interfering with card click */
+            pointer-events: none;
+        }
+
+        .map-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -100%);
+
+            z-index: 5;
+            font-size: 34px;
+
+            filter:
+                drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+
+            pointer-events: none;
+        }
+
+        /* ================================
+           ACTION CARD CONTENT
+        ================================= */
+
+        .modal-action-content {
+            padding: 14px 16px 16px;
+            min-width: 0;
+        }
+
+        .modal-action-content h3 {
+            margin: 0 0 6px;
+            font-size: 1rem;
+        }
+
+        .modal-action-content p {
+            margin: 0 0 9px;
+            font-size: 0.84rem;
+            line-height: 1.4;
+            color: #666;
+        }
+
+        .modal-action-link {
+            color: #90caf9 !important;
+            font-size: 0.84rem;
+            font-weight: 600;
+            text-decoration: none !important;
+        }
+
+        .modal-action-link:hover {
+            text-decoration: underline !important;
+        }
+
+        /* ================================
+           TRANSPORT IMAGE
+        ================================= */
+
+        .modal-transport-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            cursor: zoom-in;
+        }
+
+        /* Preserve original copyright link appearance */
+
+        #modal-copyright a {
+            color: #90caf9 !important;
+            text-decoration: none !important;
+        }
+
+        /* ================================
+           TRANSPORT IMAGE OVERLAY
+        ================================= */
+
+        .transport-image-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 3000;
+
+            background: rgba(0, 0, 0, 0.88);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease;
+
+            overflow: hidden;
+        }
+
+        .transport-image-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .transport-image-container {
+            width: 92vw;
+            height: 88vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .transport-image-overlay img {
+            max-width: 100%;
+            max-height: 100%;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 15px 45px rgba(0, 0, 0, 0.5);
+
+            cursor: zoom-in;
+
+            transform: scale(1);
+            transform-origin: center center;
+
+            transition:
+                transform 0.2s ease;
+
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .transport-image-close {
+            position: absolute;
+
+            top: 20px;
+            right: 25px;
+
+            width: 42px;
+            height: 42px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: white;
+            color: #12372a;
+
+            font-size: 28px;
+            line-height: 1;
+
+            cursor: pointer;
+
+            z-index: 2;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .transport-image-close:hover {
+            background: #d9a441;
+            color: #12372a;
+        }
+
+        /* ================================
+           MAIN CARD IMAGES
+        ================================= */
+
+        .card-img-wrapper {
+            width: 100% !important;
+            height: 240px !important;
+            overflow: hidden !important;
+        }
+
+        .card-img-wrapper img {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: none !important;
+
+            object-fit: cover !important;
+            aspect-ratio: auto !important;
+
+            display: block;
+            margin: 0 !important;
+        }
+
+        /* ================================
+           MODAL MAIN IMAGE
+        ================================= */
+
+        .modal-main-image-box {
+            width: fit-content !important;
+            max-width: 100% !important;
+
+            height: auto !important;
+            max-height: 70vh !important;
+
+            margin: 0 auto !important;
+
+            overflow: hidden !important;
+        }
+
+        #modal-main-img {
+            width: auto !important;
+            height: auto !important;
+
+            max-width: 100% !important;
+            max-height: 70vh !important;
+
+            object-fit: contain !important;
+            aspect-ratio: auto !important;
+
+            display: block !important;
+            margin: 0 auto !important;
+        }
+
+        /* ================================
+           THUMBNAILS
+        ================================= */
+
+        #modal-thumbnails {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+
+            justify-content: flex-start !important;
+            align-items: center;
+
+            gap: 10px;
+
+            width: 100% !important;
+
+            margin: 12px auto 0 !important;
+            padding: 5px 0 !important;
+
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+        }
+
+        #modal-thumbnails .modal-thumb {
+            flex: 0 0 100px !important;
+
+            width: 100px !important;
+            height: 70px !important;
+
+            min-width: 100px !important;
+            min-height: 70px !important;
+
+            overflow: hidden !important;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+        #modal-thumbnails .modal-thumb img {
+            width: 100% !important;
+            height: 100% !important;
+
+            object-fit: cover !important;
+
+            display: block !important;
+        }
+
+        #modal-thumbnails .modal-thumb.active {
+            outline: 3px solid #d9a441;
+            outline-offset: 2px;
+        }
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 700px) {
+
+            .modal-action-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .transport-image-overlay {
+                padding: 15px;
+            }
+
+            .transport-image-container {
+                width: 95vw;
+                height: 85vh;
+            }
+
+            .transport-image-close {
+                top: 12px;
+                right: 15px;
+            }
+
+            .card-img-wrapper {
+                height: 200px !important;
+            }
+
+            #modal-thumbnails {
+                justify-content: flex-start;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
+    <!-- ================================
+         NAVIGATION
+    ================================= -->
 
     <nav class="navbar">
 
@@ -23,6 +408,13 @@
         </a>
 
         <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
             <li>
                 <a href="historic.html" class="active">
                     Historic
@@ -37,7 +429,7 @@
 
             <li>
                 <a href="wildlife.html">
-                    Wildlife
+                    Wildlife & Nature
                 </a>
             </li>
 
@@ -54,18 +446,19 @@
             </li>
 
             <li>
-                <a href="art-culture.html">
+                <a href="culture.html">
                     Art & Culture
                 </a>
             </li>
+
         </ul>
 
     </nav>
 
 
-    <!-- =========================
+    <!-- ================================
          PAGE HEADER
-    ========================== -->
+    ================================= -->
 
     <header class="page-header">
 
@@ -74,43 +467,40 @@
         </h1>
 
         <p>
-            Explore Bengaluru's iconic palaces, forts, monuments and centuries of royal heritage.
+            Discover the landmarks that preserve Bengaluru's
+            rich history and heritage.
         </p>
 
     </header>
 
 
-    <!-- =========================
-         MAIN CONTENT
-    ========================== -->
+    <!-- ================================
+         HISTORIC PLACES
+    ================================= -->
 
     <main class="section">
 
         <h2>
-            Historic Places & Monuments
+            Historic Places
         </h2>
 
         <p class="intro">
-            Click any landmark card below to open an interactive view with multiple photos, history,
-            timings, and visiting details.
+            Explore some of Bengaluru's most fascinating
+            historical landmarks, from royal palaces and
+            ancient forts to monuments that reflect the
+            city's architectural and cultural heritage.
         </p>
 
 
         <div class="historic-grid">
 
-
-            <!-- =========================
-                 CARD 1
-            ========================== -->
+            <!-- CARD 1 -->
 
             <div class="historic-card" data-place="0">
 
                 <div class="card-img-wrapper">
 
-                    <img
-                        src="images/Bangalore_Palace_1.jpeg"
-                        alt="Bangalore Palace"
-                    >
+                    <img src="images/Bangalore_Palace_1.jpeg" alt="Bangalore Palace">
 
                 </div>
 
@@ -121,8 +511,12 @@
                     </h3>
 
                     <p>
-                        Famous palace with grand architecture, royal interiors,
-                        ornate details, and expansive grounds.
+                        Bangalore Palace is one of Bengaluru's
+                        most famous royal landmarks. Inspired by
+                        Windsor Castle, the palace is known for
+                        its Tudor-style architecture, fortified
+                        towers, elegant interiors, wooden carvings,
+                        paintings, and expansive grounds.
                     </p>
 
                     <span class="card-action-link">
@@ -134,18 +528,13 @@
             </div>
 
 
-            <!-- =========================
-                 CARD 2
-            ========================== -->
+            <!-- CARD 2 -->
 
             <div class="historic-card" data-place="1">
 
                 <div class="card-img-wrapper">
 
-                    <img
-                        src="images/Tippu_Sultans_Summer_palace.jpg"
-                        alt="Tippu Sultan's Summer Palace"
-                    >
+                    <img src="images/Tippu_Sultans_Summer_palace.jpg" alt="Tippu Sultan's Summer Palace">
 
                 </div>
 
@@ -156,8 +545,13 @@
                     </h3>
 
                     <p>
-                        Historic teakwood palace with fluted pillars,
-                        cusped arches, and detailed floral ceiling frescoes.
+                        Completed in 1791 during the reign of
+                        Tipu Sultan, this summer residence is
+                        built predominantly from teakwood with
+                        grand fluted pillars, cusped arches, and
+                        decorative floral ceiling paintings. It
+                        is an important example of Indo-Islamic
+                        architecture in Bengaluru.
                     </p>
 
                     <span class="card-action-link">
@@ -169,18 +563,13 @@
             </div>
 
 
-            <!-- =========================
-                 CARD 3
-            ========================== -->
+            <!-- CARD 3 -->
 
-            <div class="historic-card" data-place="3">
+            <div class="historic-card" data-place="2">
 
                 <div class="card-img-wrapper">
 
-                    <img
-                        src="images/Old_Bangalore_Fort_Inside_View.JPG"
-                        alt="Bengaluru Fort"
-                    >
+                    <img src="images/Old_Bangalore_Fort_Inside_View.JPG" alt="Bengaluru Fort">
 
                 </div>
 
@@ -191,8 +580,13 @@
                     </h3>
 
                     <p>
-                        Historic stone ramparts and gate dating back to
-                        Kempe Gowda, Hyder Ali, and Tipu Sultan.
+                        Originally constructed as a mud fort in
+                        1537 by Kempe Gowda I, the founder of
+                        Bengaluru, the fort was later rebuilt in
+                        stone by Hyder Ali and Tipu Sultan. The
+                        surviving Delhi Gate and surrounding
+                        structures preserve important elements of
+                        the city's early history.
                     </p>
 
                     <span class="card-action-link">
@@ -204,152 +598,201 @@
             </div>
 
 
-            <!-- =========================
-                 CARD 4
-            ========================== -->
+            <!-- CARD 4 -->
 
-            <div class="historic-card" data-place="2">
+            <div class="historic-card" data-place="3">
 
                 <div class="card-img-wrapper">
 
-                    <img
-                        src="images/Devanahalli_Fort_1.jpg"
-                        alt="Devanahalli Fort and Tipu's Birthplace"
-                    >
+                    <img src="images/Devanahalli_Fort_1.jpg" alt="Devanahalli Fort">
 
                 </div>
 
                 <div class="historic-card-body">
 
                     <h3>
-                        Devanahalli Fort and Tipu's Birthplace
+                        Devanahalli Fort
                     </h3>
 
                     <p>
-                        Historic fort associated with Bengaluru's early history,
-                        along with the birthplace of Tipu Sultan.
+                        Historic fort near Bengaluru known for
+                        its stone walls, gateways, bastions,
+                        and association with Tipu Sultan.
                     </p>
 
                     <span class="card-action-link">
-                        View Details &amp; Gallery →
+                        View Details & Gallery →
                     </span>
 
                 </div>
 
             </div>
 
-
         </div>
 
     </main>
 
 
-    <!-- =========================
-         MODAL
-    ========================== -->
+    <!-- ================================
+         MAIN MODAL
+    ================================= -->
 
-    <div
-        id="modal-overlay"
-        class="modal-overlay"
-        aria-hidden="true"
-    >
+    <div id="modal-overlay" class="modal-overlay" aria-hidden="true">
 
-        <div
-            class="modal-card"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-        >
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
 
-            <!-- Close button -->
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal" type="button">
 
-            <button
-                class="modal-close-btn"
-                id="modal-close"
-                aria-label="Close modal"
-                type="button"
-            >
-                &times;
+                ×
+
             </button>
 
 
-            <!-- =========================
-                 GALLERY
-            ========================== -->
+            <!-- ================================
+                 IMAGE GALLERY
+            ================================= -->
 
             <div class="modal-gallery-container">
 
-                <div
-                    class="modal-main-image-box"
-                    style="position: relative;"
-                >
+                <!-- HERO IMAGE -->
 
-                    <img
-                        id="modal-main-img"
-                        src=""
-                        alt="Landmark view"
-                    >
+                <div class="modal-main-image-box" style="position: relative;">
 
-                    <!-- Copyright -->
+                    <img id="modal-main-img" src="" alt="Landmark view">
 
-                    <div
-                        id="modal-copyright"
-                        style="
-                            position: absolute;
-                            bottom: 0;
-                            left: 0;
-                            width: 100%;
-                            background: rgba(0, 0, 0, 0.65);
-                            color: white;
-                            padding: 6px 10px;
-                            font-size: 0.8em;
-                            text-align: center;
-                            box-sizing: border-box;
-                            display: none;
-                            z-index: 2;
-                        "
-                    ></div>
+                    <!-- COPYRIGHT -->
+
+                    <div id="modal-copyright" style="
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        background: rgba(0, 0, 0, 0.65);
+                        color: white;
+                        padding: 6px 10px;
+                        font-size: 0.8em;
+                        text-align: center;
+                        box-sizing: border-box;
+                        display: none;
+                        z-index: 2;
+                        ">
+                    </div>
 
                 </div>
 
 
-                <!-- Caption -->
+                <!-- CAPTION -->
 
-                <div
-                    id="modal-caption"
-                    style="
-                        text-align: center;
-                        font-size: 0.85em;
-                        margin-top: 8px;
-                        color: #444;
-                        font-weight: 500;
-                        min-height: 1.2em;
-                    "
-                ></div>
+                <div id="modal-caption" style="
+                    text-align: center;
+                    font-size: 0.85em;
+                    margin-top: 8px;
+                    color: #444;
+                    font-weight: 500;
+                    min-height: 1.2em;
+                    ">
+                </div>
 
 
-                <!-- Thumbnail row -->
+                <!-- THUMBNAILS -->
 
-                <div
-                    class="modal-thumbs-row"
-                    id="modal-thumbs"
-                ></div>
+                <div id="modal-thumbnails" class="modal-thumbnails">
+                </div>
 
             </div>
 
 
-            <!-- =========================
+            <!-- ================================
                  MODAL INFORMATION
-            ========================== -->
+            ================================= -->
 
             <div class="modal-info-box">
 
                 <h2 id="modal-title"></h2>
 
-                <p
-                    class="modal-desc-text"
-                    id="modal-desc"
-                ></p>
+                <p class="modal-desc-text" id="modal-desc">
+                </p>
+
+
+                <!-- ================================
+                     TWO ACTION SECTIONS
+                ================================= -->
+
+                <div class="modal-action-cards">
+
+
+                    <!-- ============================
+                         GOOGLE MAPS LOCATION
+                    ============================= -->
+
+                    <a id="location-map-card" class="modal-action-card modal-map-card" href="#" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <div class="map-preview">
+
+                            <iframe id="modal-map" src="" title="Google Maps location" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+
+                            <div class="map-pin">
+                                📍
+                            </div>
+
+                        </div>
+
+
+                        <div class="modal-action-content">
+
+                            <h3>
+                                Location on Maps
+                            </h3>
+
+                            <p id="modal-map-location">
+                                View this landmark on Google Maps.
+                            </p>
+
+                            <span class="modal-action-link">
+                                Open Google Maps →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- ============================
+                         METRO ROUTE
+                    ============================= -->
+
+                    <div class="modal-action-card modal-transport-card">
+
+                        <img id="modal-transport-image" class="modal-transport-image" src=""
+                            alt="Public transport reference image" onclick="openTransportImage()">
+
+
+                        <div class="modal-action-content">
+
+                            <h3>
+                                Metro Route
+                            </h3>
+
+                            <p id="modal-transport-description">
+                                View the metro route from the nearest
+                                specified metro station to this landmark.
+                            </p>
+
+                            <a id="metro-route-card" class="modal-action-link" href="#" target="_blank"
+                                rel="noopener noreferrer">
+
+                                View Metro Route →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -358,9 +801,32 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ================================
+         TRANSPORT IMAGE FULLSCREEN OVERLAY
+    ================================= -->
+
+    <div id="transport-image-overlay" class="transport-image-overlay" onclick="closeTransportImage(event)">
+
+        <button type="button" class="transport-image-close" onclick="closeTransportImage()" aria-label="Close image">
+
+            ×
+
+        </button>
+
+
+        <div class="transport-image-container">
+
+            <img id="transport-large-image" src="" alt="Larger public transport image"
+                onclick="toggleTransportZoom(event)" onwheel="zoomTransportImage(event)">
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
          FOOTER
-    ========================== -->
+    ================================= -->
 
     <footer>
 
@@ -371,430 +837,762 @@
     </footer>
 
 
-    <!-- =========================
+    <!-- ================================
          JAVASCRIPT
-    ========================== -->
+    ================================= -->
 
     <script>
 
-        /*
-        ============================================================
-        LANDMARK DATA
-        ============================================================
-        */
-
         const historicPlaces = [
 
+            /* =========================================
+               CARD 1 — BANGALORE PALACE
+            ========================================= */
+
             {
-                title: "Bangalore Palace",
+
+                title:
+                    "Bangalore Palace",
 
                 description:
                     "Bangalore Palace is one of Bengaluru's most famous royal landmarks. Inspired by Windsor Castle, the palace is known for its Tudor-style architecture, fortified towers, elegant interiors, wooden carvings, paintings, and expansive grounds.",
 
                 images: [
+
                     "images/Bangalore_Palace_1.jpeg",
                     "images/Bangalore_Palace.jpeg",
                     "images/Bangalore_Palace_3.jpeg",
-                    "images/Bangalore_Palace_2.jpeg"
+                    "images/Bangalore_Palace_5.jpg"
+
                 ],
 
                 imageCaptions: [
+
                     "Front view of the majestic Bangalore Palace.",
                     "Interior details of Bangalore Palace.",
                     "The beautiful palace grounds.",
                     "Detailed view of the palace architecture."
+
                 ],
 
                 imageCopyrights: [
 
-                    `
-                    <span>
-                        &copy; 2018
-                        <a
-                            href="https://commons.wikimedia.org/wiki/User:Chuggingtrails"
-                            style="color:#90caf9; text-decoration:none;"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Chuggingtrails
-                        </a>
-                        |
-                        <a
-                            href="https://creativecommons.org/licenses/by-sa/4.0/"
-                            style="color:#90caf9; text-decoration:none;"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            CC BY-SA 4.0
-                        </a>
-                        |
-                        <a
-                            href="https://commons.wikimedia.org/w/index.php?curid=89852103"
-                            style="color:#90caf9; text-decoration:none;"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Image Source
-                        </a>
-                    </span>
-                    `,
-
-                    `
+                    `By <a
+                    href="//commons.wikimedia.org/w/index.php?title=User:Chuggingtrails&action=edit&redlink=1"
+                    class="new"
+                    title="User:Chuggingtrails (page does not exist)"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Chuggingtrails</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
                     <a
-                        href="https://commons.wikimedia.org/"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
                     >
-                        &copy; Image Source 2
-                    </a>
-                    `,
-
-                    `
+                    CC BY-SA 4.0
+                    </a>,
                     <a
-                        href="https://commons.wikimedia.org/"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    href="https://commons.wikimedia.org/w/index.php?curid=154659247"
+                    style="color:#90caf9; text-decoration:none;"
                     >
-                        &copy; Image Source 3
-                    </a>
-                    `,
+                    via Wikimedia Commons
+                    </a>`,
 
-                    `
+                    `By <a
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
                     <a
-                        href="https://commons.wikimedia.org/"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
                     >
-                        &copy; Image Source 4
-                    </a>
-                    `
-                ]
+                    CC BY-SA 4.0
+                    </a>,
+                    <a
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`,
+
+                    `By <a
+                    href="https://commons.wikimedia.org/wiki/User:Amith.M"
+                    title="User:Amith.M"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Amith.M</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
+                    <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
+                    <a
+                    href="https://commons.wikimedia.org/w/index.php?curid=102246822"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`,
+
+                    `By <a
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
+                    <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
+                    <a
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`
+
+                ],
+
+                location:
+                    "Bangalore Palace, Bengaluru, Karnataka",
+
+                /* Exact Google Maps location URL supplied */
+
+                mapUrl:
+                    "https://www.google.com/maps/place/Bengaluru+Palace/@13.003512,77.5865204,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae1649294a5637:0xb1f8b77e331512cf!8m2!3d13.0035068!4d77.5890953!16s%2Fm%2F02pf96d?entry=ttu&g_ep=EgoyMDI2MDkyMi4wIKXMDSoASAFQAw%3D%3D",
+
+                /* Map preview */
+
+                mapEmbed:
+                    "https://www.google.com/maps?q=Bangalore+Palace,+Bengaluru&output=embed",
+
+                /* Existing image */
+
+                transportImage:
+                    "images/Vidhana_Soudha_metro.png",
+
+                /* Exact metro route URL supplied */
+
+                transportUrl:
+                    "https://www.google.com/maps/dir/Dr.+B.R.+Ambedkar+Station+Vidhana+Soudha,+Ambedkar+Veedhi,+Bengaluru,+Karnataka+560001/Bengaluru+Palace,+Bengaluru,+Karnataka/@12.9901382,77.5821776,15z/am=t/data=!4m14!4m13!1m5!1m1!1s0x3bae166e480002fb:0x679716e11849bc68!2m2!1d77.5926343!2d12.9796925!1m5!1m1!1s0x3bae1649294a5637:0xb1f8b77e331512cf!2m2!1d77.5890953!2d13.0035068!3e3?entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+
+                transportDescription:
+                    "Directions from Dr. B.R. Ambedkar Station Vidhana Soudha Metro Station to Bangalore Palace."
+
             },
 
 
+            /* =========================================
+               CARD 2 — TIPPU SULTAN'S SUMMER PALACE
+            ========================================= */
+
             {
-                title: "Tippu Sultan’s Summer Palace",
+
+                title:
+                    "Tippu Sultan’s Summer Palace",
 
                 description:
                     "Completed in 1791 during the reign of Tipu Sultan, this summer residence is built predominantly from teakwood with grand fluted pillars, cusped arches, and decorative floral ceiling paintings. It is an important example of Indo-Islamic architecture in Bengaluru.",
 
                 images: [
+
                     "images/Tippu_Sultans_Summer_palace.jpg",
-                    "images/Tipu_Sultans_palace_in_Bangalore._01.jpg",
                     "images/Tipu_Sultans_Palace_Bangalore.jpg",
-                    "images/Tipu_Sultans_Summer_Palace_(15732183225).jpg",
+                    "images/Tipu_Sultans_palace_in_Bangalore._01.jpg",
+                    "images/Tipu_Sultans_Summer_Palace.jpg",
                     "images/Tipu_Sultans_Summer_Palace_03.jpg"
+
                 ],
 
                 imageCaptions: [
-                    "Front view of Tippu Sultan’s Summer Palace.",
+
+                    "Exterior view of Tippu Sultan’s Summer Palace.",
                     "Architectural details of the palace.",
-                    "The historic palace structure.",
-                    "A view of the palace from the grounds.",
-                    "Decorative details of the summer palace."
-                ],
+                    "Interior and wooden architecture of the palace.",
+                    "Image 4",
+                    "image 5"
 
-                imageCopyrights: [
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ]
-            },
-
-
-            {
-                title: "Devanahalli Fort and Tipu's Birthplace",
-
-                description:
-                    "Devanahalli Fort is a historic fort located near Bengaluru, originally built in the early sixteenth century and later reconstructed in stone. The fort is especially significant because Tipu Sultan was born in Devanahalli in 1750, making the site an important part of the region's military and royal history.",
-
-                images: [
-                    "images/Devanahalli_Fort_1.jpg",
-                    "images/Devanahalli_Fort_2.jpg",
-                    "images/Devanahalli_Fort_3.jpg",
-                    "images/Devanahalli_Fort_4.jpg"
-                ],
-
-                imageCaptions: [
-                    "A view of Devanahalli Fort.",
-                    "Another view of the historic Devanahalli Fort.",
-                    "Entrance and outer section of Devanahalli Fort.",
-                    "Tipu Sultan's birthplace at Devanahalli."
                 ],
 
                 imageCopyrights: [
 
                     `By <a
-                        href="https://commons.wikimedia.org/wiki/User:Harvinder_Chandigarh"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Harvinder Chandigarh</a>
-                    - <span class="int-own-work" lang="en">Own work</span>
-                    |
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
                     <a
-                        href="https://creativecommons.org/licenses/by/4.0"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >CC BY 4.0</a>
-                    |
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
                     <a
-                        href="https://commons.wikimedia.org/w/index.php?curid=149158774"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Image Source</a>`,
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`,
 
                     `By <a
-                        href="https://commons.wikimedia.org/wiki/User:Harvinder_Chandigarh"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Harvinder Chandigarh</a>
-                    - <span class="int-own-work" lang="en">Own work</span>
-                    |
+                    href="https://commons.wikimedia.org/wiki/User:Vinayaraj"
+                    title="User:Vinayaraj"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Vinayaraj</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
                     <a
-                        href="https://creativecommons.org/licenses/by/4.0"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >CC BY 4.0</a>
-                    |
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
                     <a
-                        href="https://commons.wikimedia.org/w/index.php?curid=149159064"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Image Source</a>`,
+                    href="https://commons.wikimedia.org/w/index.php?curid=105907906"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`,
 
                     `By <a
-                        href="https://commons.wikimedia.org/wiki/User:Harvinder_Chandigarh"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Harvinder Chandigarh</a>
-                    - <span class="int-own-work" lang="en">Own work</span>
-                    |
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
                     <a
-                        href="https://creativecommons.org/licenses/by/4.0"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >CC BY 4.0</a>
-                    |
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
                     <a
-                        href="https://commons.wikimedia.org/w/index.php?curid=149159063"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Image Source</a>`,
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`
 
-                    `By <a
-                        href="https://commons.wikimedia.org/wiki/User:Tinucherian"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Tinucherian</a>
-                    - <span class="int-own-work" lang="en">Own work</span>
-                    |
-                    <a
-                        href="https://creativecommons.org/licenses/by-sa/3.0"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >CC BY-SA 3.0</a>
-                    |
-                    <a
-                        href="https://commons.wikimedia.org/w/index.php?curid=5745399"
-                        style="color:#90caf9; text-decoration:none;"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Image Source</a>`
-                ]
+                ],
+
+                location:
+                    "Tipu Sultan's Summer Palace, Bengaluru, Karnataka",
+
+                /* Exact Google Maps location URL */
+
+                mapUrl:
+                    "https://www.google.com/maps/place/Tipu+Sultan's+Summer+Palace/@12.962807,77.5733113,17z/data=!4m6!3m5!1s0x3bae15e4b434e601:0x1a69fbe395219f75!8m2!3d12.9593513!4d77.5736415!16s%2Fm%2F06wb67f?entry=ttu&g_ep=EgoyMDI2MDkyMi4wIKXMDSoASAFQAw%3D%3D",
+
+                mapEmbed:
+                    "https://www.google.com/maps?q=Tipu+Sultan's+Summer+Palace,+Bengaluru&output=embed",
+
+                transportImage:
+                    "images/KR_Market_metro.png",
+
+                /* Exact metro route URL */
+
+                transportUrl:
+                    "https://www.google.com/maps/dir/Krishna+Rajendra+Market,+in+front+of+Vanivilas+Hospital,+Chikkanna+Garden,+Kalasipalya,+Bengaluru,+Karnataka+560002/Tipu+Sultan's+Summer+Palace,+42,+Tippu+Sultan+Palace+Rd,+Kamalanagar,+Chamrajpet,+Bengaluru,+Karnataka+560018/@12.9597561,77.5714853,17z/am=t/data=!4m14!4m13!1m5!1m1!1s0x3bae15e535c24c7d:0xf21755dc05616cdb!2m2!1d77.574479!2d12.960161!1m5!1m1!1s0x3bae15e4b434e601:0x1a69fbe395219f75!2m2!1d77.5736415!2d12.9593513!3e3?entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+
+                transportDescription:
+                    "Directions from Krishna Rajendra Market Metro Station to Tippu Sultan’s Summer Palace."
+
             },
 
 
+            /* =========================================
+               CARD 3 — BENGALURU FORT
+            ========================================= */
+
             {
-                title: "Bengaluru Fort",
+
+                title:
+                    "Bengaluru Fort",
 
                 description:
                     "Originally constructed as a mud fort in 1537 by Kempe Gowda I, the founder of Bengaluru, the fort was later rebuilt in stone by Hyder Ali and Tipu Sultan. The surviving Delhi Gate and surrounding structures preserve important elements of the city's early history.",
 
                 images: [
-                    "images/Old_Bangalore_Fort_Inside_View.JPG",
-                    "images/Old_Bangalore_Fort_Front_View.JPG"
+
+                    "images/Old_Bangalore_Fort_Front_View.JPG",
+                    "images/Old_Bangalore_Fort_Inside_View.JPG"
+
                 ],
 
                 imageCaptions: [
-                    "Interior view of Bengaluru Fort.",
-                    "Historic front section of Bengaluru Fort."
+
+                    "Interior view of the historic Bengaluru Fort.",
+                    "Historic stone structures of Bengaluru Fort."
+
                 ],
 
                 imageCopyrights: [
-                    "",
-                    ""
-                ]
+
+                    `By <a
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
+                    <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
+                    <a
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`,
+
+                    `By <a
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
+                    <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
+                    <a
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`
+
+                ],
+
+                location:
+                    "Bengaluru Fort, Bengaluru, Karnataka",
+
+                /* Exact Google Maps location URL */
+
+                mapUrl:
+                    "https://www.google.com/maps/place/Bengaluru+Fort/@12.962807,77.5733113,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae15e3043a1d57:0xb2a4590209bde6d7!8m2!3d12.9628018!4d77.5758862!16s%2Fm%2F04zzyf_?entry=ttu&g_ep=EgoyMDI2MDkyMi4wIKXMDSoASAFQAw%3D%3D",
+
+                mapEmbed:
+                    "https://www.google.com/maps?q=Bengaluru+Fort,+Bengaluru&output=embed",
+
+                transportImage:
+                    "images/KR_Market_metro.png",
+
+                /* Exact metro route URL */
+
+                transportUrl:
+                    "https://www.google.com/maps/dir/Krishna+Rajendra+Market,+in+front+of+Vanivilas+Hospital,+Chikkanna+Garden,+Kalasipalya,+Bengaluru,+Karnataka+560002/Bengaluru+Fort,+XH7G%2B49C,+Krishna+Rajendra+Rd,+New+Tharagupet,+Bengaluru,+Karnataka+560002/@12.9614248,77.5739801,18z/am=t/data=!4m14!4m13!1m5!1m1!1s0x3bae15e535c24c7d:0xf21755dc05616cdb!2m2!1d77.574479!2d12.960161!1m5!1m1!1s0x3bae15e3043a1d57:0xb2a4590209bde6d7!2m2!1d77.5758862!2d12.9628018!3e3?entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+
+                transportDescription:
+                    "Directions from Krishna Rajendra Market Metro Station to Bengaluru Fort."
+
+            },
+
+
+            /* =========================================
+               CARD 4 — DEVANAHALLI FORT
+            ========================================= */
+
+            {
+
+                title:
+                    "Devanahalli Fort",
+
+                description:
+                    "Historic fort near Bengaluru known for its stone walls, gateways, bastions, and association with Tipu Sultan.",
+
+                images: [
+
+                    "images/Devanahalli_Fort_1.jpg",
+                    "images/Devanahalli_Fort_2.jpg",
+                    "images/Devanahalli_Fort_3.jpg",
+                    "images/Devanahalli_Fort_4.jpg"
+
+                ],
+
+                imageCaptions: [
+
+                    "Main view of Devanahalli Fort.",
+                    "Historic walls and fortifications.",
+                    "Gateway and architectural details.",
+                    "View of the fort surroundings."
+
+                ],
+
+                imageCopyrights: [
+
+                    `By <a
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
+                    <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
+                    <a
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`,
+
+                    `By <a
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
+                    <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
+                    <a
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`,
+
+                    `By <a
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
+                    <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
+                    <a
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`,
+
+                    `By <a
+                    href="https://commons.wikimedia.org/wiki/User:Ashwin_kumar"
+                    title="User:Ashwin kumar"
+                    style="color:#90caf9; text-decoration:none;"
+                    >Ashwin kumar</a> -
+                    <span class="int-own-work" lang="en">
+                    Own work
+                    </span>,
+                    <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0"
+                    title="Creative Commons Attribution-Share Alike 4.0"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    CC BY-SA 4.0
+                    </a>,
+                    <a
+                    href="https://commons.wikimedia.org/w/index.php?curid=1199934"
+                    style="color:#90caf9; text-decoration:none;"
+                    >
+                    via Wikimedia Commons
+                    </a>`
+
+                ],
+
+                location:
+                    "Devanahalli Fort, Devanahalli, Karnataka",
+
+                /* Exact Google Maps location URL */
+
+                mapUrl:
+                    "https://www.google.com/maps/place/Devanahalli+Fort/@13.2493326,77.7071249,17z/data=!4m10!1m2!2m1!1sDevanahalli+Fort+!3m6!1s0x3bb1e2837ed0d3bb:0x4def231b4f72ea6d!8m2!3d13.2496161!4d77.7083876!15sChBEZXZhbmFob2xsaSBGb3J0WhIiEGRldmFuYWhhbGxpIGZvcnSSARNoaXN0b3JpY2FsX2xhbmRtYXJr4AEA!16s%2Fm%2F05c2cnr?entry=ttu&g_ep=EgoyMDI2MDkyMi4wIKXMDSoASAFQAw%3D%3D",
+
+                mapEmbed:
+                    "https://www.google.com/maps?q=Devanahalli+Fort,+Karnataka&output=embed",
+
+                transportImage:
+                    "images/Majestic_metro.png",
+
+                /* Exact metro route URL */
+
+                transportUrl:
+                    "https://www.google.com/maps/dir/Nadaprabhu+Kempegowda+Metro+Station,+Majestic,+Kempegowda+Rd,+Kempegowda,+Sevashrama,+Bengaluru,+Karnataka+560009/Devanahalli+Fort,+near,+Devanahalli+District,+Hyderabad+-+Bengaluru+Hwy,+Devanahally,+Karnataka+562110/@13.1130421,77.5574141,12z/am=t/data=!4m14!4m13!1m5!1m1!1s0x3bae16056f420465:0xa95f996d1d0f8d92!2m2!1d77.572844!2d12.975692!1m5!1m1!1s0x3bb1e2837ed0d3bb:0x4def231b4f72ea6d!2m2!1d77.7083876!2d13.2496161!3e3?entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+
+                transportDescription:
+                    "Directions from Nadaprabhu Kempegowda Metro Station (Majestic) to Devanahalli Fort."
+
             }
 
         ];
 
 
-        /*
-        ============================================================
-        DOM ELEMENTS
-        ============================================================
-        */
+        /* =========================================
+           ELEMENT REFERENCES
+        ========================================= */
 
         const cards =
-            document.querySelectorAll(".historic-card");
+            document.querySelectorAll(
+                ".historic-card"
+            );
 
         const modalOverlay =
-            document.getElementById("modal-overlay");
+            document.getElementById(
+                "modal-overlay"
+            );
 
-        const modalCloseBtn =
-            document.getElementById("modal-close");
+        const modalClose =
+            document.getElementById(
+                "modal-close"
+            );
 
         const modalTitle =
-            document.getElementById("modal-title");
+            document.getElementById(
+                "modal-title"
+            );
 
         const modalDesc =
-            document.getElementById("modal-desc");
+            document.getElementById(
+                "modal-desc"
+            );
 
         const mainImage =
-            document.getElementById("modal-main-img");
+            document.getElementById(
+                "modal-main-img"
+            );
+
+        const modalCaption =
+            document.getElementById(
+                "modal-caption"
+            );
+
+        const modalCopyright =
+            document.getElementById(
+                "modal-copyright"
+            );
 
         const thumbsContainer =
-            document.getElementById("modal-thumbs");
+            document.getElementById(
+                "modal-thumbnails"
+            );
 
-        const copyrightBox =
-            document.getElementById("modal-copyright");
+        const mapFrame =
+            document.getElementById(
+                "modal-map"
+            );
 
-        const captionBox =
-            document.getElementById("modal-caption");
+        const mapCard =
+            document.getElementById(
+                "location-map-card"
+            );
 
+        const mapLocation =
+            document.getElementById(
+                "modal-map-location"
+            );
 
-        /*
-        ============================================================
-        CURRENT STATE
-        ============================================================
-        */
+        const transportImage =
+            document.getElementById(
+                "modal-transport-image"
+            );
+
+        const metroRouteCard =
+            document.getElementById(
+                "metro-route-card"
+            );
+
+        const transportDescription =
+            document.getElementById(
+                "modal-transport-description"
+            );
+
+        const transportImageOverlay =
+            document.getElementById(
+                "transport-image-overlay"
+            );
+
+        const transportLargeImage =
+            document.getElementById(
+                "transport-large-image"
+            );
+
 
         let currentModalData = null;
 
         let currentImageIndex = 0;
 
 
-        /*
-        ============================================================
-        UPDATE IMAGE INFORMATION
-        ============================================================
-        */
+        /* =========================================
+           UPDATE MAP + METRO INFORMATION
+        ========================================= */
 
-        function updateImageDetails(index) {
+        function updateGoogleMapsCards(data) {
 
-            currentImageIndex = index;
-
-
-            // Copyright
-
-            if (
-                currentModalData.imageCopyrights &&
-                currentModalData.imageCopyrights[index] &&
-                currentModalData.imageCopyrights[index].trim() !== ""
-            ) {
-
-                copyrightBox.innerHTML =
-                    currentModalData.imageCopyrights[index];
-
-                copyrightBox.style.display = "block";
-
-            } else {
-
-                copyrightBox.innerHTML = "";
-
-                copyrightBox.style.display = "none";
-
+            if (!data) {
+                return;
             }
 
 
-            // Caption
+            /* Google Maps location */
 
-            if (
-                currentModalData.imageCaptions &&
-                currentModalData.imageCaptions[index]
-            ) {
+            mapCard.href =
+                data.mapUrl || "#";
 
-                captionBox.textContent =
-                    currentModalData.imageCaptions[index];
+            mapFrame.src =
+                data.mapEmbed || "";
 
-            } else {
+            mapLocation.textContent =
+                data.location ||
+                "View this landmark on Google Maps.";
 
-                captionBox.textContent = "";
 
-            }
+            /* Metro image */
+
+            transportImage.src =
+                data.transportImage || "";
+
+            transportImage.alt =
+                `${data.title} public transport reference image`;
+
+
+            /* Metro route */
+
+            metroRouteCard.href =
+                data.transportUrl || "#";
+
+
+            /* Metro route description */
+
+            transportDescription.textContent =
+                data.transportDescription ||
+                "View the metro route from the nearest specified metro station to this landmark.";
 
         }
 
 
-        /*
-        ============================================================
-        CHANGE IMAGE
-        ============================================================
-        */
+        /* =========================================
+           SHOW SELECTED IMAGE
+        ========================================= */
 
         function showImage(index) {
 
             if (
                 !currentModalData ||
                 !currentModalData.images ||
-                currentModalData.images.length === 0
+                !currentModalData.images.length
             ) {
                 return;
             }
 
 
-            if (index < 0) {
-
-                index =
-                    currentModalData.images.length - 1;
-
-            }
+            currentImageIndex =
+                index;
 
 
-            if (
-                index >=
-                currentModalData.images.length
-            ) {
-
-                index = 0;
-
-            }
-
-
-            currentImageIndex = index;
+            const imageUrl =
+                currentModalData.images[
+                index
+                ];
 
 
             mainImage.src =
-                currentModalData.images[index];
+                imageUrl;
+
 
             mainImage.alt =
-                `${currentModalData.title} - Image ${index + 1}`;
+                `${currentModalData.title} view ${index + 1}`;
 
 
-            updateImageDetails(index);
+            /* Caption */
+
+            if (
+                currentModalData.imageCaptions &&
+                currentModalData.imageCaptions[index]
+            ) {
+
+                modalCaption.textContent =
+                    currentModalData.imageCaptions[
+                    index
+                    ];
+
+            } else {
+
+                modalCaption.textContent =
+                    "";
+
+            }
 
 
-            /*
-            --------------------------------------------------------
-            Update active thumbnail
-            --------------------------------------------------------
-            */
+            /* Copyright */
+
+            if (
+                currentModalData.imageCopyrights &&
+                currentModalData.imageCopyrights[index]
+            ) {
+
+                modalCopyright.innerHTML =
+                    `Image Source: ${currentModalData.imageCopyrights[index]}`;
+
+                modalCopyright.style.display =
+                    "block";
+
+            } else {
+
+                modalCopyright.innerHTML =
+                    "";
+
+                modalCopyright.style.display =
+                    "none";
+
+            }
+
+
+            /* Active thumbnail */
 
             const thumbs =
                 thumbsContainer.querySelectorAll(
@@ -802,74 +1600,33 @@
                 );
 
 
-            thumbs.forEach((thumb, i) => {
+            thumbs.forEach(
+                function (
+                    thumb,
+                    thumbIndex
+                ) {
 
-                thumb.classList.toggle(
-                    "active",
-                    i === index
-                );
+                    thumb.classList.toggle(
+                        "active",
+                        thumbIndex === index
+                    );
 
-            });
-
-        }
-
-
-        /*
-        ============================================================
-        NEXT / PREVIOUS IMAGE
-        ============================================================
-        */
-
-        function navigateImage(direction) {
-
-            if (!currentModalData) {
-                return;
-            }
-
-
-            const totalImages =
-                currentModalData.images.length;
-
-
-            if (totalImages === 0) {
-                return;
-            }
-
-
-            let newIndex =
-                currentImageIndex + direction;
-
-
-            if (newIndex < 0) {
-
-                newIndex =
-                    totalImages - 1;
-
-            }
-
-
-            if (newIndex >= totalImages) {
-
-                newIndex = 0;
-
-            }
-
-
-            showImage(newIndex);
+                }
+            );
 
         }
 
 
-        /*
-        ============================================================
-        OPEN MODAL
-        ============================================================
-        */
+        /* =========================================
+           OPEN MODAL
+        ========================================= */
 
         function populateAndOpenModal(placeIndex) {
 
             const data =
-                historicPlaces[placeIndex];
+                historicPlaces[
+                placeIndex
+                ];
 
 
             if (!data) {
@@ -884,42 +1641,44 @@
             }
 
 
-            currentModalData = data;
+            currentModalData =
+                data;
 
-
-            /*
-            --------------------------------------------------------
-            Text information
-            --------------------------------------------------------
-            */
 
             modalTitle.textContent =
                 data.title;
+
 
             modalDesc.textContent =
                 data.description;
 
 
-            /*
-            --------------------------------------------------------
-            Clear old thumbnails
-            --------------------------------------------------------
-            */
+            /* Update Maps + Metro */
 
-            thumbsContainer.innerHTML = "";
+            updateGoogleMapsCards(
+                data
+            );
 
 
-            /*
-            --------------------------------------------------------
-            Create thumbnails
-            --------------------------------------------------------
-            */
+            /* Clear thumbnails */
+
+            thumbsContainer.innerHTML =
+                "";
+
+
+            /* Create thumbnails */
 
             data.images.forEach(
-                (imgUrl, index) => {
+                (
+                    imgUrl,
+                    index
+                ) => {
 
                     const thumb =
-                        document.createElement("div");
+                        document.createElement(
+                            "div"
+                        );
+
 
                     thumb.className =
                         "modal-thumb";
@@ -927,35 +1686,30 @@
 
                     if (index === 0) {
 
-                        thumb.classList.add("active");
+                        thumb.classList.add(
+                            "active"
+                        );
 
                     }
 
 
                     const img =
-                        document.createElement("img");
+                        document.createElement(
+                            "img"
+                        );
+
 
                     img.src =
                         imgUrl;
+
 
                     img.alt =
                         `${data.title} thumbnail ${index + 1}`;
 
 
-                    /*
-                    ------------------------------------------------
-                    Prevent broken thumbnail from breaking modal
-                    ------------------------------------------------
-                    */
-
-                    img.onerror = function () {
-
-                        this.style.opacity = "0.4";
-
-                    };
-
-
-                    thumb.appendChild(img);
+                    thumb.appendChild(
+                        img
+                    );
 
 
                     thumb.addEventListener(
@@ -964,7 +1718,9 @@
 
                             event.stopPropagation();
 
-                            showImage(index);
+                            showImage(
+                                index
+                            );
 
                         }
                     );
@@ -978,22 +1734,19 @@
             );
 
 
-            /*
-            --------------------------------------------------------
-            Show first image
-            --------------------------------------------------------
-            */
+            /* Show first image */
 
-            showImage(0);
+            showImage(
+                0
+            );
 
 
-            /*
-            --------------------------------------------------------
-            Open modal
-            --------------------------------------------------------
-            */
+            /* Open modal */
 
-            modalOverlay.classList.add("active");
+            modalOverlay.classList.add(
+                "active"
+            );
+
 
             modalOverlay.setAttribute(
                 "aria-hidden",
@@ -1001,29 +1754,22 @@
             );
 
 
-            /*
-            --------------------------------------------------------
-            Prevent background page scrolling
-            --------------------------------------------------------
-            */
-
             document.body.style.overflow =
                 "hidden";
 
         }
 
 
-        /*
-        ============================================================
-        CLOSE MODAL
-        ============================================================
-        */
+        /* =========================================
+           CLOSE MODAL
+        ========================================= */
 
         function closeModal() {
 
             modalOverlay.classList.remove(
                 "active"
             );
+
 
             modalOverlay.setAttribute(
                 "aria-hidden",
@@ -1035,12 +1781,6 @@
                 "";
 
 
-            /*
-            --------------------------------------------------------
-            Clear image after closing
-            --------------------------------------------------------
-            */
-
             setTimeout(
                 function () {
 
@@ -1050,9 +1790,17 @@
                         )
                     ) {
 
-                        mainImage.src = "";
+                        mainImage.src =
+                            "";
 
-                        thumbsContainer.innerHTML = "";
+                        transportImage.src =
+                            "";
+
+                        mapFrame.src =
+                            "";
+
+                        thumbsContainer.innerHTML =
+                            "";
 
                     }
 
@@ -1063,11 +1811,175 @@
         }
 
 
-        /*
-        ============================================================
-        CARD CLICK EVENTS
-        ============================================================
-        */
+        /* =========================================
+           TRANSPORT IMAGE ZOOM
+        ========================================= */
+
+        let transportZoomLevel = 1;
+
+
+        function applyTransportZoom() {
+
+            transportLargeImage.style.transform =
+                `scale(${transportZoomLevel})`;
+
+
+            transportLargeImage.style.cursor =
+                transportZoomLevel > 1
+                    ? "zoom-out"
+                    : "zoom-in";
+
+        }
+
+
+        function openTransportImage() {
+
+            if (
+                !transportImage ||
+                !transportImage.src
+            ) {
+                return;
+            }
+
+
+            transportLargeImage.src =
+                transportImage.src;
+
+
+            transportLargeImage.alt =
+                transportImage.alt;
+
+
+            transportZoomLevel =
+                1;
+
+
+            applyTransportZoom();
+
+
+            transportImageOverlay.classList.add(
+                "active"
+            );
+
+        }
+
+
+        function toggleTransportZoom(event) {
+
+            event.stopPropagation();
+
+
+            if (
+                transportZoomLevel > 1
+            ) {
+
+                transportZoomLevel =
+                    1;
+
+            } else {
+
+                transportZoomLevel =
+                    2;
+
+            }
+
+
+            applyTransportZoom();
+
+        }
+
+
+        function zoomTransportImage(event) {
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+
+            if (
+                event.deltaY < 0
+            ) {
+
+                transportZoomLevel =
+                    Math.min(
+                        transportZoomLevel + 0.25,
+                        3
+                    );
+
+            } else {
+
+                transportZoomLevel =
+                    Math.max(
+                        transportZoomLevel - 0.25,
+                        1
+                    );
+
+            }
+
+
+            applyTransportZoom();
+
+        }
+
+
+        function closeTransportImage(event) {
+
+            if (
+                event &&
+                event.target !==
+                transportImageOverlay
+            ) {
+
+                return;
+
+            }
+
+
+            transportImageOverlay.classList.remove(
+                "active"
+            );
+
+
+            transportZoomLevel =
+                1;
+
+
+            transportLargeImage.style.transform =
+                "scale(1)";
+
+
+            transportLargeImage.style.cursor =
+                "zoom-in";
+
+        }
+
+
+        /* =========================================
+           ESCAPE FOR TRANSPORT IMAGE
+        ========================================= */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    transportImageOverlay.classList.contains(
+                        "active"
+                    )
+                ) {
+
+                    closeTransportImage();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           HISTORIC CARD CLICK
+        ========================================= */
 
         cards.forEach(
             function (card) {
@@ -1078,25 +1990,8 @@
 
                         const placeIndex =
                             parseInt(
-                                card.dataset.place,
-                                10
-                            );
-
-
-                        if (
-                            Number.isNaN(
-                                placeIndex
-                            )
-                        ) {
-
-                            console.error(
-                                "Invalid place index:",
                                 card.dataset.place
                             );
-
-                            return;
-
-                        }
 
 
                         populateAndOpenModal(
@@ -1110,11 +2005,19 @@
         );
 
 
-        /*
-        ============================================================
-        CLOSE WHEN CLICKING BACKDROP
-        ============================================================
-        */
+        /* =========================================
+           CLOSE MODAL BUTTON
+        ========================================= */
+
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        /* =========================================
+           CLICK OUTSIDE MODAL
+        ========================================= */
 
         modalOverlay.addEventListener(
             "click",
@@ -1133,27 +2036,9 @@
         );
 
 
-        /*
-        ============================================================
-        CLOSE BUTTON
-        ============================================================
-        */
-
-        modalCloseBtn.addEventListener(
-            "click",
-            function () {
-
-                closeModal();
-
-            }
-        );
-
-
-        /*
-        ============================================================
-        KEYBOARD CONTROLS
-        ============================================================
-        */
+        /* =========================================
+           KEYBOARD NAVIGATION
+        ========================================= */
 
         document.addEventListener(
             "keydown",
@@ -1170,9 +2055,7 @@
                 }
 
 
-                /*
-                Escape
-                */
+                /* Escape */
 
                 if (
                     event.key === "Escape"
@@ -1180,58 +2063,49 @@
 
                     closeModal();
 
-                    return;
-
                 }
 
 
-                /*
-                Previous image
-                */
-
-                if (
-                    event.key === "ArrowLeft"
-                ) {
-
-                    navigateImage(-1);
-
-                    return;
-
-                }
-
-
-                /*
-                Next image
-                */
+                /* Next image */
 
                 if (
                     event.key === "ArrowRight"
                 ) {
 
-                    navigateImage(1);
+                    const nextIndex =
+                        (
+                            currentImageIndex + 1
+                        ) %
+                        currentModalData.images.length;
 
-                    return;
+
+                    showImage(
+                        nextIndex
+                    );
 
                 }
 
-            }
-        );
+
+                /* Previous image */
+
+                if (
+                    event.key === "ArrowLeft"
+                ) {
+
+                    const previousIndex =
+                        (
+                            currentImageIndex -
+                            1 +
+                            currentModalData.images.length
+                        ) %
+                        currentModalData.images.length;
 
 
-        /*
-        ============================================================
-        IMAGE ERROR HANDLING
-        ============================================================
-        */
+                    showImage(
+                        previousIndex
+                    );
 
-        mainImage.addEventListener(
-            "error",
-            function () {
-
-                console.error(
-                    "Could not load image:",
-                    mainImage.src
-                );
+                }
 
             }
         );
