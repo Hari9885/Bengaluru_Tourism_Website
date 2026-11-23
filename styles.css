@@ -144,6 +144,68 @@ body {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+.intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(18, 45, 34, 0.88);
+    color: white;
+    text-align: center;
+    backdrop-filter: blur(3px);
+    animation: intro-splash 4.5s ease-in-out forwards;
+    pointer-events: none;
+}
+
+.intro-kicker {
+    margin-bottom: 10px;
+    color: #e4d58c;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.intro-overlay h1 {
+    margin-bottom: 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.intro-subtitle {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+@keyframes intro-splash {
+    0% {
+        opacity: 0;
+    }
+
+    12%, 64% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-overlay {
+        display: none;
+        animation: none;
+    }
+}
+
 
 /* =========================
    PLACE TITLE
@@ -323,6 +385,12 @@ footer {
     padding: 25px;
 }
 
+.activity-credit {
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+}
+
 
 /* =========================
    RESPONSIVE DESIGN
@@ -351,6 +419,10 @@ footer {
 
     .slide-caption p {
         font-size: 16px;
+    }
+
+    .intro-overlay h1 {
+        font-size: 36px;
     }
 
     .place-title {
@@ -393,6 +465,15 @@ footer {
 
     .slide-caption p {
         font-size: 15px;
+    }
+
+    .intro-overlay h1 {
+        font-size: 30px;
+    }
+
+    .intro-kicker {
+        font-size: 10px;
+        letter-spacing: 1.5px;
     }
 
     .place-title {
